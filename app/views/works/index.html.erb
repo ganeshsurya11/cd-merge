@@ -1,0 +1,75 @@
+<%=begin
+     ###############################################################################
+     #    Copyright (c) 2014, Carl Stahmer - www.carlstahmer.com                   #
+     #                                                                             #
+     #    This file is part of the Collex Edition Builder, a platform              #
+     #    publishing digital editions with a complete, FRBRized system of          #
+     #    metadata management and linked-data functionality.                       #
+     #                                                                             #
+     #    The Collex Edition Builder is free software: you can redistribute it     #
+     #    and/or modify it under the terms of the GNU General Public License       #
+     #    as published by the Free Software Foundation, either version 3 of        #
+     #    the License, or (at your option) any later version.                      #
+     #                                                                             #
+     #    The Collex Edition Builder is distributed in the hope that it will       #
+     #    be useful, but WITHOUT ANY WARRANTY; without even the implied warranty   #
+     #    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         #
+     #    GNU General Public License for more details.                             #
+     #                                                                             #
+     #    You should have received a copy of the GNU General Public License        #
+     #    along with The Collex Edition Builder distribution.  If not,             #
+     #    see <http://www.gnu.org/licenses/>.                                      #
+     #                                                                             #
+     #    Development of this software was made possible through funding from      #
+     #    the National Endowment for the Humanities as well as the Institute       #
+     #    for Digital Humanities, Media, and Culture at Texas A&M University.      #
+     ###############################################################################
+   end%>
+<% content_for :head_breadcrumb do %>
+    <li><a href="/admin">Admin Interface</a></li>
+    <li><a href="#">Work</a></li>
+<% end %>
+
+<h1>Listing works</h1>
+
+<table>
+  <tr>
+    <th>Work name</th>
+    <th>Work siglum</th>
+    <th>Work FRBR Level</th>
+    <th>Work viaf</th>
+    <th>Work viaf link</th>
+    <th>Work standard title</th>
+    <th>Work standard title source</th>
+    <th>Work notes</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @works.each do |work| %>
+  <tr>
+    <td><%= work.work_name %></td>
+    <td><%= work.work_siglum %></td>
+    <td><%= work.work_frbr %></td>
+    <td><%= work.work_viaf_id %></td>
+    <td><%= work.work_viaf_link %></td>
+    <td><%= work.work_standard_title %></td>
+    <td><%= work.work_standard_title_source %></td>
+    <td><%= work.work_notes %></td>
+    <td><%= link_to 'Show', work %></td>
+    <td><%= link_to 'Edit', edit_work_path(work) %></td>
+    <td><%= link_to 'Destroy', work, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Work', new_work_path %>
+
+<% content_for :foot_logout do %>
+    <div class="content_right_align">
+      <%= link_to "Logout", '/sessions/destroy' %>
+    </div>
+<% end %>

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  page_id: 1
+  surrogate_id: 1
+  entity_id: 1
+  transcription_id: 1
+  line_page_order: 1
+  line_entity_order: 1
+  line_tei: MyString
+  line_plaintext: MyString
+  line_variant_version: MyString
+
+two:
+  page_id: 1
+  surrogate_id: 1
+  entity_id: 1
+  transcription_id: 1
+  line_page_order: 1
+  line_entity_order: 1
+  line_tei: MyString
+  line_plaintext: MyString
+  line_variant_version: MyString

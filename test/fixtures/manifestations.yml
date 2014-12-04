@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  expression_id: 1
+  manifestation_type_id: 1
+  manifestation_name: MyString
+  manifestation_siglum: MyString
+  manifestation_description: MyString
+  manifestation_notes: MyText
+
+two:
+  expression_id: 1
+  manifestation_type_id: 1
+  manifestation_name: MyString
+  manifestation_siglum: MyString
+  manifestation_description: MyString
+  manifestation_notes: MyText

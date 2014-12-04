@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  local_markup_map_token: MyString
+  local_markup_map_tei: MyString
+
+two:
+  local_markup_map_token: MyString
+  local_markup_map_tei: MyString

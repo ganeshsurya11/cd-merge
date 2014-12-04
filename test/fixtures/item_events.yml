@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  item_id: 1
+  event_type_id: 1
+  agent_id: 1
+  role_id: 1
+  location_id: 1
+  item_event_start_date: MyString
+  item_event_end_date: MyString
+  item_event_notes: MyText
+
+two:
+  item_id: 1
+  event_type_id: 1
+  agent_id: 1
+  role_id: 1
+  location_id: 1
+  item_event_start_date: MyString
+  item_event_end_date: MyString
+  item_event_notes: MyText

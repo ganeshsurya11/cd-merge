@@ -1,0 +1,103 @@
+<%=begin
+     ###############################################################################
+     #    Copyright (c) 2014, Carl Stahmer - www.carlstahmer.com                   #
+     #                                                                             #
+     #    This file is part of the Collex Edition Builder, a platform              #
+     #    publishing digital editions with a complete, FRBRized system of          #
+     #    metadata management and linked-data functionality.                       #
+     #                                                                             #
+     #    The Collex Edition Builder is free software: you can redistribute it     #
+     #    and/or modify it under the terms of the GNU General Public License       #
+     #    as published by the Free Software Foundation, either version 3 of        #
+     #    the License, or (at your option) any later version.                      #
+     #                                                                             #
+     #    The Collex Edition Builder is distributed in the hope that it will       #
+     #    be useful, but WITHOUT ANY WARRANTY; without even the implied warranty   #
+     #    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         #
+     #    GNU General Public License for more details.                             #
+     #                                                                             #
+     #    You should have received a copy of the GNU General Public License        #
+     #    along with The Collex Edition Builder distribution.  If not,             #
+     #    see <http://www.gnu.org/licenses/>.                                      #
+     #                                                                             #
+     #    Development of this software was made possible through funding from      #
+     #    the National Endowment for the Humanities as well as the Institute       #
+     #    for Digital Humanities, Media, and Culture at Texas A&M University.      #
+     ###############################################################################
+   end%>
+<%= form_for(@work) do |f| %>
+  <% if @work.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@work.errors.count, "error") %> prohibited this work from being saved:</h2>
+
+      <ul>
+      <% @work.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+    <table class="form_column_table_three">
+        <tr class="form_column_table_tr">
+            <td class="form_column_table_left_cell_two">
+              <div class="field">
+                Work Name<br />
+                <%= f.text_field :work_name %>
+              </div>
+              <div class="field">
+                Work Siglum<br />
+                <%= f.text_field :work_siglum %>
+              </div>
+              <div class="field">
+                VIAF ID<br />
+                <%= f.number_field :work_viaf_id %>
+              </div>
+              <div class="field">
+                VIAF Persistent URI<br />
+                <%= f.text_field :work_viaf_link %>
+              </div>
+              <div class="field">
+                <%= f.check_box :work_frbr %> Primary Work*
+              </div>
+              <div class="field">
+                <%= f.label :work_standard_title %><br />
+                <%= f.text_field :work_standard_title %>
+              </div>
+              <div class="field">
+                <%= f.label :work_standard_title_source %><br />
+                <%= f.text_field :work_standard_title_source %>
+              </div>
+              <div class="field">
+                <%= f.label :work_short_code %><br />
+                <%= f.text_field :work_short_code %>
+              </div>              
+            </td>
+            <td class="form_column_table_right_cell_two">
+              <div class="field">
+                <%= f.label :work_notes %><br />
+                <%= f.text_area :work_notes %>
+              </div>
+            </td>
+        </tr>
+        <tr class="split_columns_tr">
+            <td colspan="2">
+              <div class="actions">
+                <%= f.submit %>
+              </div>
+            </td>
+        </tr>
+        <tr class="split_columns_tr">
+          <td colspan="2">
+            <div class="actions">
+              * A primary work is a top-level work that is not contained by any other work and whose children
+              appear in the site's main navigation system.  For example, a book, a movie, etc.  Non-primary works
+              are sub-works, artistic creations such as poems, essays, etc. that are contained by primary works.
+              Non-primary Works, or Sub-Works, do not appear in the site's main navigation but do appear in the Tables of
+              Contents and/or Indexes of Primary Works.
+            </div>
+          </td>
+        </tr>
+    </table>
+<% end %>

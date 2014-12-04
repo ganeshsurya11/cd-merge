@@ -1,0 +1,53 @@
+<%=begin
+     ###############################################################################
+     #    Copyright (c) 2014, Carl Stahmer - www.carlstahmer.com                   #
+     #                                                                             #
+     #    This file is part of the Collex Edition Builder, a platform              #
+     #    publishing digital editions with a complete, FRBRized system of          #
+     #    metadata management and linked-data functionality.                       #
+     #                                                                             #
+     #    The Collex Edition Builder is free software: you can redistribute it     #
+     #    and/or modify it under the terms of the GNU General Public License       #
+     #    as published by the Free Software Foundation, either version 3 of        #
+     #    the License, or (at your option) any later version.                      #
+     #                                                                             #
+     #    The Collex Edition Builder is distributed in the hope that it will       #
+     #    be useful, but WITHOUT ANY WARRANTY; without even the implied warranty   #
+     #    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         #
+     #    GNU General Public License for more details.                             #
+     #                                                                             #
+     #    You should have received a copy of the GNU General Public License        #
+     #    along with The Collex Edition Builder distribution.  If not,             #
+     #    see <http://www.gnu.org/licenses/>.                                      #
+     #                                                                             #
+     #    Development of this software was made possible through funding from      #
+     #    the National Endowment for the Humanities as well as the Institute       #
+     #    for Digital Humanities, Media, and Culture at Texas A&M University.      #
+     ###############################################################################
+   end%>
+<% content_for :edition_title_bar do %>
+    <%= raw(@title_nav_links) %>
+<% end %>
+
+<div class="pagination">
+  <%= paginate @rs_concordance_lines %>
+</div>
+
+<table class="concordance_lines_table">
+
+<% @rs_concordance_lines.each do |cl| %>
+      <tr class="concordance_lines_row">
+      <%= raw(make_concordance_line_row(get_expression_siglum(cl.line.expression_id), right_adjust_elem(Work.find_work_short_code(cl.line.id)), right_adjust_elem(Work.find_work_siglum(cl.line.id)), right_adjust_elem(cl.line.line_page_order), bold_item(cl.line.line_tei, @concordance_token), cl.line.page_id, @concordance_token)) %>
+
+      </tr>
+<% end %>
+
+</table>
+
+<div class="pagination">
+  <%= paginate @rs_concordance_lines %>
+</div>
+
+<div class="edition_nav_links">
+  <%= raw(@edition_nav_links) %>
+</div>

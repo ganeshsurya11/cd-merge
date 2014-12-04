@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  config_active: false
+  conf_group_expression_type: false
+  conf_group_manifestation_type: false
+  conf_build_concordance: false
+  conf_build_variants: false
+  conf_contact_email: MyString
+  conf_contact_form: false
+  conf_site_name: MyString
+  conf_site_tagline: MyString
+  conf_site_domain_name: MyString
+  conf_site_httpd_root: MyString
+  conf_site_transcription_root: MyString
+  conf_site_facsimile_root: MyString
+  conf_site_xslt_directory: MyString
+
+two:
+  config_active: false
+  conf_group_expression_type: false
+  conf_group_manifestation_type: false
+  conf_build_concordance: false
+  conf_build_variants: false
+  conf_contact_email: MyString
+  conf_contact_form: false
+  conf_site_name: MyString
+  conf_site_tagline: MyString
+  conf_site_domain_name: MyString
+  conf_site_httpd_root: MyString
+  conf_site_transcription_root: MyString
+  conf_site_facsimile_root: MyString
+  conf_site_xslt_directory: MyString

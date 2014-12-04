@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  concordance_entry_id: 1
+  digital_edition_id: 1
+  entrycount: 1
+
+two:
+  concordance_entry_id: 1
+  digital_edition_id: 1
+  entrycount: 1

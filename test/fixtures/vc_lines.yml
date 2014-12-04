@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  vc_id: 1
+  vc_page_id: 1
+  vc_surrogate_id: 1
+  vc_entities_id: 1
+  vc_line_page_order: 1
+  vc_line_entity_order: 1
+  vc_line_tei: MyString
+  vc_line_plaintext: MyString
+  vc_user_id: 1
+  vc_user_name: MyString
+  vc_user_action: MyString
+  vc_date_time_stamp: 2013-05-16 07:15:24
+
+two:
+  vc_id: 1
+  vc_page_id: 1
+  vc_surrogate_id: 1
+  vc_entities_id: 1
+  vc_line_page_order: 1
+  vc_line_entity_order: 1
+  vc_line_tei: MyString
+  vc_line_plaintext: MyString
+  vc_user_id: 1
+  vc_user_name: MyString
+  vc_user_action: MyString
+  vc_date_time_stamp: 2013-05-16 07:15:24

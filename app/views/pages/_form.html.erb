@@ -1,0 +1,89 @@
+<%=begin
+     ###############################################################################
+     #    Copyright (c) 2014, Carl Stahmer - www.carlstahmer.com                   #
+     #                                                                             #
+     #    This file is part of the Collex Edition Builder, a platform              #
+     #    publishing digital editions with a complete, FRBRized system of          #
+     #    metadata management and linked-data functionality.                       #
+     #                                                                             #
+     #    The Collex Edition Builder is free software: you can redistribute it     #
+     #    and/or modify it under the terms of the GNU General Public License       #
+     #    as published by the Free Software Foundation, either version 3 of        #
+     #    the License, or (at your option) any later version.                      #
+     #                                                                             #
+     #    The Collex Edition Builder is distributed in the hope that it will       #
+     #    be useful, but WITHOUT ANY WARRANTY; without even the implied warranty   #
+     #    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         #
+     #    GNU General Public License for more details.                             #
+     #                                                                             #
+     #    You should have received a copy of the GNU General Public License        #
+     #    along with The Collex Edition Builder distribution.  If not,             #
+     #    see <http://www.gnu.org/licenses/>.                                      #
+     #                                                                             #
+     #    Development of this software was made possible through funding from      #
+     #    the National Endowment for the Humanities as well as the Institute       #
+     #    for Digital Humanities, Media, and Culture at Texas A&M University.      #
+     ###############################################################################
+   end%>
+<%= form_for(@page) do |f| %>
+  <% if @page.errors.any? %>
+	<div id="error_explanation">
+	  <h2><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</h2>
+
+	  <ul>
+	  <% @page.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+	  <% end %>
+	  </ul>
+	</div>
+  <% end %>
+			  <div class="content_width_left">
+			
+				 <table class="split_columns">
+		  			<tr class="split_columns_tr">
+			  			<td class="split_columns_left_cell"> 
+				  
+				  			<% if @notice && @notice.length > 0 %>
+				  				<p id="notice"><%= @notice %></p>
+				  			<% end %>
+				  
+							<p>
+								<h1><%= @de_title %></h1>
+							</p>
+							<p>
+                              <span class="minor_header">Page</span> <%= text_field_tag("page[page_page]", @int_page_value, {:size => "3"}) %>
+							</p>
+							<p>
+							  <div class="field">
+								<div class = "margin_up">
+									<span class="minor_header"><%= f.label "Production Notes" %></span><br />
+									<%= f.text_area :page_notes, :cols => "54", :rows => "5" %>
+							    </div>
+							  </div> 
+							
+						</td>
+						<td>
+                            <% if @page.page_image.file %>
+							    <a id="show_image" href="#"><%= image_tag @page.page_image_url(:thumb).to_s%></a>
+                            <% end %>
+							<p class="p_margin_above">
+								<span class="underline_text">Select New Image:</span><br />
+								<%= f.file_field :page_image %>
+							</p>
+						</td>
+
+						
+						
+					</tr>
+				</table>
+				
+				<div class="actions">
+					<%= hidden_field_tag(:this_id, @page.id) %>
+					<%= hidden_field_tag(:image_file, @page.page_image) %>
+                    <%= hidden_field_tag(:parent, @parent) %>
+                    <%= hidden_field_tag('page[digital_edition_id]', @diged) %>
+					<%= f.submit "Save Page, Production Notes, and Page Image Changes" %>
+				</div>
+					
+			  </div>
+  <% end %>

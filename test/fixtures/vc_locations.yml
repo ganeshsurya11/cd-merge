@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  vc_id: 1
+  vc_location_name: MyString
+  vc_location_latitude: 9.99
+  vc_location_longitude: 9.99
+  vc_location_ghetty_name: MyString
+  vc_location_ghetty_id: 1
+  vc_user_id: 1
+  vc_user_name: MyString
+  vc_user_action: MyString
+  vc_date_time_stamp: 2013-05-16 07:18:23
+
+two:
+  vc_id: 1
+  vc_location_name: MyString
+  vc_location_latitude: 9.99
+  vc_location_longitude: 9.99
+  vc_location_ghetty_name: MyString
+  vc_location_ghetty_id: 1
+  vc_user_id: 1
+  vc_user_name: MyString
+  vc_user_action: MyString
+  vc_date_time_stamp: 2013-05-16 07:18:23

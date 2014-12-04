@@ -1,0 +1,135 @@
+<%=begin
+     ###############################################################################
+     #    Copyright (c) 2014, Carl Stahmer - www.carlstahmer.com                   #
+     #                                                                             #
+     #    This file is part of the Collex Edition Builder, a platform              #
+     #    publishing digital editions with a complete, FRBRized system of          #
+     #    metadata management and linked-data functionality.                       #
+     #                                                                             #
+     #    The Collex Edition Builder is free software: you can redistribute it     #
+     #    and/or modify it under the terms of the GNU General Public License       #
+     #    as published by the Free Software Foundation, either version 3 of        #
+     #    the License, or (at your option) any later version.                      #
+     #                                                                             #
+     #    The Collex Edition Builder is distributed in the hope that it will       #
+     #    be useful, but WITHOUT ANY WARRANTY; without even the implied warranty   #
+     #    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         #
+     #    GNU General Public License for more details.                             #
+     #                                                                             #
+     #    You should have received a copy of the GNU General Public License        #
+     #    along with The Collex Edition Builder distribution.  If not,             #
+     #    see <http://www.gnu.org/licenses/>.                                      #
+     #                                                                             #
+     #    Development of this software was made possible through funding from      #
+     #    the National Endowment for the Humanities as well as the Institute       #
+     #    for Digital Humanities, Media, and Culture at Texas A&M University.      #
+     ###############################################################################
+   end%>
+<%= form_for(@digital_edition) do |f| %>
+  <% if @digital_edition.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@digital_edition.errors.count, "error") %> prohibited this digital_edition from being saved:</h2>
+
+      <ul>
+      <% @digital_edition.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="row">
+	<div class="col gu2_half_left">
+	  	<div class="content_left_justify">
+	  	
+		  <div class="field">
+			<%= f.label "Web Display Title:" %><br />
+			<%= f.text_field :digital_edition_local_title, :size => 50 %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.check_box :digital_edition_active %>&nbsp;Active
+		  </div>
+		  
+	  	</div>
+	</div>
+
+  	<div class="col gu2_half_right">
+		<div class="content_align_right">
+		
+		  <% if @bln_is_edit %>
+		  	<%= @pages_count %> Pages<br />
+		  	<span class="blue_link_no_underline"><a href="/pages/<%= @digital_edition.id %>/view">[Manage Pages]</a></span>
+		  <% else %>
+		  	&nbsp;
+		  <% end %>
+				
+		</div>
+	</div>
+  </div>
+	
+
+  <div class="generic_chunk">
+	  <div class="field">
+		<%= f.label "Digital Edition Description:" %><br />
+		<%= f.text_area :digital_edition_description, :cols => "95", :rows => "8" %>
+	  </div>
+
+      <div class="field">
+        <%= f.label "Surrogate Of (Manifestation):" %><br />
+        <%= f.select :manifestation_id, @manifestations_master, {}, { :class => 'edition_manifestation_select', :selected => @digital_edition.manifestation_id } %>
+      </div>
+
+      <div class="field">
+		<%= f.label "Primary Transcription Witness:" %><br />
+		<%= f.select :item_id, @items_master, {}, { :class => 'item_holding_select', :selected => @digital_edition.item_id } %>
+	  </div>
+
+
+    <div class="field">
+      <%= f.label "Navigation Category:" %><br />
+      <%= f.select :nav_category_id, @navcat_master, {}, { :class => 'edition_navcat_select', :selected => @digital_edition.nav_category_id } %>
+    </div>
+
+    <div class="field">
+      <%= f.label "Navigation Order:" %><br />
+      <%= f.text_field :digital_edition_order, :size => "2" %>
+    </div>
+
+    <div class="field">
+		<%= f.label "Production Notes (not public):" %><br />
+		<%= f.text_area :digital_edition_notes, :cols => "95", :rows => "5" %>
+	  </div>
+
+    </div>
+
+    <div class="field">
+      <%= f.label "Composite Variant Link URL:" %><br />
+      <%= f.text_field :digital_edition_variant_list_url, :size => 60 %>
+    </div>
+
+    </div>
+
+
+
+    <div class="row">
+      <div class="col gu2_half_left">
+        <div class="content_left_justify">
+
+
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col gu2_half_right">
+        <div class="content_align_right">
+
+          <div class="blue_link_no_underline"><a href="#" this_id="<%= @this_id %>" id="tei_link">[Build Edition TEI]</a></div>
+          <div class="blue_link_no_underline"><a href="#" this_id="<%= @this_id %>" id="concordance_link">[Build Edition Concordance]</a></div>
+
+        </div>
+      </div>
+    </div>
+  
+  
+<% end %>

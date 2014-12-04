@@ -1,0 +1,1759 @@
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-23 02:02:46 +0530
+Processing by SplashController#index as HTML
+  [1m[36mNavCategory Load (114.4ms)[0m  [1mSELECT "nav_categories".* FROM "nav_categories" WHERE (id IN (SELECT DISTINCT nav_category_id FROM digital_editions)) ORDER BY nav_category_order ASC[0m
+  [1m[35mEXPLAIN (0.2ms)[0m  EXPLAIN QUERY PLAN SELECT "nav_categories".* FROM "nav_categories" WHERE (id IN (SELECT DISTINCT nav_category_id FROM digital_editions)) ORDER BY nav_category_order ASC
+EXPLAIN for: SELECT "nav_categories".* FROM "nav_categories"  WHERE (id IN (SELECT DISTINCT nav_category_id FROM digital_editions)) ORDER BY nav_category_order ASC
+0|0|0|SEARCH TABLE nav_categories USING INTEGER PRIMARY KEY (rowid=?) (~25 rows)
+0|0|0|EXECUTE LIST SUBQUERY 1
+1|0|0|SCAN TABLE digital_editions (~1000000 rows)
+1|0|0|USE TEMP B-TREE FOR DISTINCT
+0|0|0|USE TEMP B-TREE FOR ORDER BY
+
+  [1m[36mDigitalEdition Load (21.5ms)[0m  [1mSELECT "digital_editions".* FROM "digital_editions" WHERE (nav_category_id IN ( 1, 2) AND digital_edition_active LIKE 't') ORDER BY nav_category_id ASC, digital_edition_order ASC[0m
+  [1m[35mConf Load (119.6ms)[0m  SELECT "confs".* FROM "confs" WHERE "confs"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered splash/index.html.erb within layouts/application (160.2ms)
+Completed 200 OK in 7159ms (Views: 4901.6ms | ActiveRecord: 959.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-23 02:02:56 +0530
+Served asset /jquery.js - 200 OK (12ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-23 02:02:56 +0530
+Served asset /jquery_ujs.js - 200 OK (53ms)
+
+
+Started GET "/assets/concordance_stop_words.js?body=1" for 127.0.0.1 at 2014-10-23 02:02:56 +0530
+Served asset /concordance_stop_words.js - 200 OK (6ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-10-23 02:02:57 +0530
+Served asset /admin.js - 200 OK (8ms)
+
+
+Started GET "/assets/agents.js?body=1" for 127.0.0.1 at 2014-10-23 02:02:57 +0530
+Served asset /agents.js - 200 OK (10ms)
+
+
+Started GET "/assets/concordance_entries.js?body=1" for 127.0.0.1 at 2014-10-23 02:02:57 +0530
+Served asset /concordance_entries.js - 200 OK (141ms)
+
+
+Started GET "/assets/donne.grid.css?body=1" for 127.0.0.1 at 2014-10-23 02:02:58 +0530
+Served asset /donne.grid.css - 200 OK (8ms)
+
+
+Started GET "/assets/donne.main.css?body=1" for 127.0.0.1 at 2014-10-23 02:02:58 +0530
+Served asset /donne.main.css - 200 OK (9ms)
+
+
+Started GET "/assets/donne.admin.css?body=1" for 127.0.0.1 at 2014-10-23 02:02:58 +0530
+Served asset /donne.admin.css - 200 OK (73ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.10.3.custom.css?body=1" for 127.0.0.1 at 2014-10-23 02:02:59 +0530
+Served asset /smoothness/jquery-ui-1.10.3.custom.css - 200 OK (5ms)
+
+
+Started GET "/assets/confs.js?body=1" for 127.0.0.1 at 2014-10-23 02:02:59 +0530
+Served asset /confs.js - 200 OK (8ms)
+
+
+Started GET "/assets/delete_object.js?body=1" for 127.0.0.1 at 2014-10-23 02:02:59 +0530
+Served asset /delete_object.js - 200 OK (9ms)
+
+
+Started GET "/assets/digital_editions.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:00 +0530
+Served asset /digital_editions.js - 200 OK (9ms)
+
+
+Started GET "/assets/entities.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:00 +0530
+Served asset /entities.js - 200 OK (8ms)
+
+
+Started GET "/assets/event_types.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:00 +0530
+Served asset /event_types.js - 200 OK (78ms)
+
+
+Started GET "/assets/expression_types.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:01 +0530
+Served asset /expression_types.js - 200 OK (47ms)
+
+
+Started GET "/assets/expressions.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:01 +0530
+Served asset /expressions.js - 200 OK (5ms)
+
+
+Started GET "/assets/holding_institutions.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:01 +0530
+Served asset /holding_institutions.js - 200 OK (10ms)
+
+
+Started GET "/assets/item_events.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:01 +0530
+Served asset /item_events.js - 200 OK (6ms)
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:02 +0530
+Served asset /items.js - 200 OK (10ms)
+
+
+Started GET "/assets/jquery-1.9.1.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:02 +0530
+Served asset /jquery-1.9.1.js - 200 OK (10ms)
+
+
+Started GET "/assets/jquery-ui-1.10.3.custom.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:02 +0530
+Served asset /jquery-ui-1.10.3.custom.js - 200 OK (52ms)
+
+
+Started GET "/assets/jquery.mask.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:03 +0530
+Served asset /jquery.mask.js - 200 OK (6ms)
+
+
+Started GET "/assets/local_markup_mappings.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:03 +0530
+Served asset /local_markup_mappings.js - 200 OK (6ms)
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:04 +0530
+Served asset /locations.js - 200 OK (8ms)
+
+
+Started GET "/assets/manifestation_events.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:04 +0530
+Served asset /manifestation_events.js - 200 OK (8ms)
+
+
+Started GET "/assets/manifestation_types.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:05 +0530
+Served asset /manifestation_types.js - 200 OK (8ms)
+
+
+Started GET "/assets/manifestations.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:05 +0530
+Served asset /manifestations.js - 200 OK (9ms)
+
+
+Started GET "/assets/manifestations_events.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:05 +0530
+Served asset /manifestations_events.js - 200 OK (7ms)
+
+
+Started GET "/assets/nav_categories.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:05 +0530
+Served asset /nav_categories.js - 200 OK (8ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:06 +0530
+Served asset /pages.js - 200 OK (9ms)
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:06 +0530
+Served asset /roles.js - 200 OK (6ms)
+
+
+Started GET "/assets/surrogates.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:07 +0530
+Served asset /surrogates.js - 200 OK (9ms)
+
+
+Started GET "/assets/system_event_types.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:07 +0530
+Served asset /system_event_types.js - 200 OK (8ms)
+
+
+Started GET "/assets/transcriptions.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:07 +0530
+Served asset /transcriptions.js - 200 OK (7ms)
+
+
+Started GET "/assets/user_roles.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:07 +0530
+Served asset /user_roles.js - 200 OK (7ms)
+
+
+Started GET "/assets/view_port.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:07 +0530
+Served asset /view_port.js - 200 OK (7ms)
+
+
+Started GET "/assets/works.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:08 +0530
+Served asset /works.js - 200 OK (5ms)
+
+
+Started GET "/assets/zoom.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:08 +0530
+Served asset /zoom.js - 200 OK (6ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:09 +0530
+Served asset /application.js - 200 OK (130ms)
+
+
+Started GET "/assets/3.gif" for 127.0.0.1 at 2014-10-23 02:03:09 +0530
+Served asset /3.gif - 200 OK (6ms)
+
+
+Started GET "/assets/donne-logo.gif" for 127.0.0.1 at 2014-10-23 02:03:10 +0530
+Served asset /donne-logo.gif - 200 OK (4ms)
+
+
+Started GET "/assets/arch-960.jpg" for 127.0.0.1 at 2014-10-23 02:03:10 +0530
+Served asset /arch-960.jpg - 200 OK (5ms)
+
+
+Started GET "/assets/smoothness/images/ui-bg_flat_75_ffffff_40x100.png" for 127.0.0.1 at 2014-10-23 02:03:11 +0530
+Served asset /smoothness/images/ui-bg_flat_75_ffffff_40x100.png - 200 OK (4ms)
+
+
+Started GET "/assets/smoothness/images/ui-icons_222222_256x240.png" for 127.0.0.1 at 2014-10-23 02:03:11 +0530
+Served asset /smoothness/images/ui-icons_222222_256x240.png - 200 OK (4ms)
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2014-10-23 02:03:11 +0530
+Served asset /favicon.ico - 200 OK (5ms)
+
+
+Started GET "/edition/1/concordance/1139" for 127.0.0.1 at 2014-10-23 02:03:25 +0530
+Processing by ConcordanceController#showeditem as HTML
+  Parameters: {"id"=>"1", "it"=>"1139"}
+  [1m[36mDigitalEdition Load (0.9ms)[0m  [1mSELECT "digital_editions".* FROM "digital_editions" WHERE "digital_editions"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mManifestation Load (0.6ms)[0m  SELECT "manifestations".* FROM "manifestations" WHERE "manifestations"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mConcordanceEntry Load (46.0ms)[0m  [1mSELECT "concordance_entries".* FROM "concordance_entries" WHERE "concordance_entries"."id" = ? LIMIT 1[0m  [["id", "1139"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "digital_editions".* FROM "digital_editions" WHERE "digital_editions"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "manifestations".* FROM "manifestations" WHERE "manifestations"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mExpressionsHasManifestations Load (42.1ms)[0m  SELECT "expressions_has_manifestations".* FROM "expressions_has_manifestations" WHERE (manifestation_id = 1) LIMIT 1
+  [1m[36mExpression Load (10.5ms)[0m  [1mSELECT "expressions".* FROM "expressions" WHERE "expressions"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mWork Load (0.6ms)[0m  SELECT "works".* FROM "works" WHERE "works"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPage Load (919.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE (digital_edition_id = 1) ORDER BY page_page ASC LIMIT 1[0m
+  [1m[35mEXPLAIN (0.2ms)[0m  EXPLAIN QUERY PLAN SELECT "pages".* FROM "pages" WHERE (digital_edition_id = 1) ORDER BY page_page ASC LIMIT 1
+EXPLAIN for: SELECT  "pages".* FROM "pages"  WHERE (digital_edition_id = 1) ORDER BY page_page ASC LIMIT 1
+0|0|0|SCAN TABLE pages (~100000 rows)
+0|0|0|USE TEMP B-TREE FOR ORDER BY
+
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "digital_editions".* FROM "digital_editions" WHERE "digital_editions"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (3020.2ms)[0m  SELECT COUNT(*) FROM "digital_edition_has_concordance_entries" INNER JOIN "lines" ON "lines"."id" = "digital_edition_has_concordance_entries"."line_id" WHERE (digital_edition_has_concordance_entries.digital_edition_id = 1 AND digital_edition_has_concordance_entries.concordance_entry_id = 1139)
+  [1m[36mDigitalEditionHasConcordanceEntry Load (245.7ms)[0m  [1mSELECT "digital_edition_has_concordance_entries".* FROM "digital_edition_has_concordance_entries" INNER JOIN "lines" ON "lines"."id" = "digital_edition_has_concordance_entries"."line_id" WHERE (digital_edition_has_concordance_entries.digital_edition_id = 1 AND digital_edition_has_concordance_entries.concordance_entry_id = 1139) ORDER BY lines.line_digital_edition_order ASC LIMIT 20 OFFSET 0[0m
+  [1m[35mLine Load (0.7ms)[0m  SELECT "lines".* FROM "lines" WHERE "lines"."id" = 446 LIMIT 1
+PageID: 508
+  [1m[36mTranscription Load (561.3ms)[0m  [1mSELECT "transcriptions".* FROM "transcriptions" WHERE (page_id = 508) ORDER BY transcription_order ASC LIMIT 1[0m
+  [1m[35mEXPLAIN (0.2ms)[0m  EXPLAIN QUERY PLAN SELECT "transcriptions".* FROM "transcriptions" WHERE (page_id = 508) ORDER BY transcription_order ASC LIMIT 1
+EXPLAIN for: SELECT  "transcriptions".* FROM "transcriptions"  WHERE (page_id = 508) ORDER BY transcription_order ASC LIMIT 1
+0|0|0|SCAN TABLE transcriptions (~100000 rows)
+0|0|0|USE TEMP B-TREE FOR ORDER BY
+
+  [1m[36mExpression Load (25.1ms)[0m  [1mSELECT "expressions".* FROM "expressions" WHERE "expressions"."id" = 628 LIMIT 1[0m
+  [1m[35mWork Load (35.8ms)[0m   
+		select works.work_short_code from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 446
+ 	
+  [1m[36mWork Load (1.7ms)[0m  [1m 
+		select works.work_siglum from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 446
+ 	[0m
+  [1m[35mLine Load (0.8ms)[0m  SELECT "lines".* FROM "lines" WHERE "lines"."id" = 897 LIMIT 1
+PageID: 364
+  [1m[36mTranscription Load (2.2ms)[0m  [1mSELECT "transcriptions".* FROM "transcriptions" WHERE (page_id = 364) ORDER BY transcription_order ASC LIMIT 1[0m
+  [1m[35mExpression Load (0.9ms)[0m  SELECT "expressions".* FROM "expressions" WHERE "expressions"."id" = 708 LIMIT 1
+  [1m[36mWork Load (1.0ms)[0m  [1m 
+		select works.work_short_code from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 897
+ 	[0m
+  [1m[35mWork Load (0.8ms)[0m   
+		select works.work_siglum from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 897
+ 	
+  [1m[36mLine Load (0.5ms)[0m  [1mSELECT "lines".* FROM "lines" WHERE "lines"."id" = 1782 LIMIT 1[0m
+PageID: 490
+  [1m[35mTranscription Load (1.9ms)[0m  SELECT "transcriptions".* FROM "transcriptions" WHERE (page_id = 490) ORDER BY transcription_order ASC LIMIT 1
+  [1m[36mExpression Load (0.7ms)[0m  [1mSELECT "expressions".* FROM "expressions" WHERE "expressions"."id" = 468 LIMIT 1[0m
+  [1m[35mWork Load (0.8ms)[0m   
+		select works.work_short_code from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 1782
+ 	
+  [1m[36mWork Load (0.8ms)[0m  [1m 
+		select works.work_siglum from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 1782
+ 	[0m
+  [1m[35mLine Load (28.7ms)[0m  SELECT "lines".* FROM "lines" WHERE "lines"."id" = 1882 LIMIT 1
+PageID: 93
+  [1m[36mTranscription Load (3.0ms)[0m  [1mSELECT "transcriptions".* FROM "transcriptions" WHERE (page_id = 93) ORDER BY transcription_order ASC LIMIT 1[0m
+  [1m[35mExpression Load (1.0ms)[0m  SELECT "expressions".* FROM "expressions" WHERE "expressions"."id" = 64 LIMIT 1
+  [1m[36mWork Load (1.3ms)[0m  [1m 
+		select works.work_short_code from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 1882
+ 	[0m
+  [1m[35mWork Load (1.0ms)[0m   
+		select works.work_siglum from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 1882
+ 	
+  [1m[36mLine Load (0.7ms)[0m  [1mSELECT "lines".* FROM "lines" WHERE "lines"."id" = 2506 LIMIT 1[0m
+PageID: 395
+  [1m[35mTranscription Load (2.5ms)[0m  SELECT "transcriptions".* FROM "transcriptions" WHERE (page_id = 395) ORDER BY transcription_order ASC LIMIT 1
+  [1m[36mExpression Load (12.6ms)[0m  [1mSELECT "expressions".* FROM "expressions" WHERE "expressions"."id" = 562 LIMIT 1[0m
+  [1m[35mWork Load (45.7ms)[0m   
+		select works.work_short_code from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 2506
+ 	
+  [1m[36mWork Load (1.6ms)[0m  [1m 
+		select works.work_siglum from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 2506
+ 	[0m
+  [1m[35mLine Load (0.9ms)[0m  SELECT "lines".* FROM "lines" WHERE "lines"."id" = 2909 LIMIT 1
+PageID: 56
+  [1m[36mTranscription Load (2.7ms)[0m  [1mSELECT "transcriptions".* FROM "transcriptions" WHERE (page_id = 56) ORDER BY transcription_order ASC LIMIT 1[0m
+  [1m[35mExpression Load (0.6ms)[0m  SELECT "expressions".* FROM "expressions" WHERE "expressions"."id" = 235 LIMIT 1
+  [1m[36mWork Load (0.9ms)[0m  [1m 
+		select works.work_short_code from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 2909
+ 	[0m
+  [1m[35mWork Load (1.0ms)[0m   
+		select works.work_siglum from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 2909
+ 	
+  [1m[36mLine Load (0.6ms)[0m  [1mSELECT "lines".* FROM "lines" WHERE "lines"."id" = 3402 LIMIT 1[0m
+PageID: 186
+  [1m[35mTranscription Load (2.0ms)[0m  SELECT "transcriptions".* FROM "transcriptions" WHERE (page_id = 186) ORDER BY transcription_order ASC LIMIT 1
+  [1m[36mExpression Load (0.7ms)[0m  [1mSELECT "expressions".* FROM "expressions" WHERE "expressions"."id" = 460 LIMIT 1[0m
+  [1m[35mWork Load (0.9ms)[0m   
+		select works.work_short_code from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 3402
+ 	
+  [1m[36mWork Load (0.8ms)[0m  [1m 
+		select works.work_siglum from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 3402
+ 	[0m
+  [1m[35mLine Load (36.2ms)[0m  SELECT "lines".* FROM "lines" WHERE "lines"."id" = 4665 LIMIT 1
+PageID: 460
+  [1m[36mTranscription Load (2.2ms)[0m  [1mSELECT "transcriptions".* FROM "transcriptions" WHERE (page_id = 460) ORDER BY transcription_order ASC LIMIT 1[0m
+  [1m[35mExpression Load (1.0ms)[0m  SELECT "expressions".* FROM "expressions" WHERE "expressions"."id" = 20 LIMIT 1
+  [1m[36mWork Load (1.0ms)[0m  [1m 
+		select works.work_short_code from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 4665
+ 	[0m
+  [1m[35mWork Load (1.0ms)[0m   
+		select works.work_siglum from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 4665
+ 	
+  [1m[36mLine Load (0.6ms)[0m  [1mSELECT "lines".* FROM "lines" WHERE "lines"."id" = 5366 LIMIT 1[0m
+PageID: 109
+  [1m[35mTranscription Load (2.1ms)[0m  SELECT "transcriptions".* FROM "transcriptions" WHERE (page_id = 109) ORDER BY transcription_order ASC LIMIT 1
+  [1m[36mExpression Load (0.7ms)[0m  [1mSELECT "expressions".* FROM "expressions" WHERE "expressions"."id" = 119 LIMIT 1[0m
+  [1m[35mWork Load (0.9ms)[0m   
+		select works.work_short_code from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 5366
+ 	
+  [1m[36mWork Load (0.8ms)[0m  [1m 
+		select works.work_siglum from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 5366
+ 	[0m
+  [1m[35mLine Load (0.5ms)[0m  SELECT "lines".* FROM "lines" WHERE "lines"."id" = 5631 LIMIT 1
+PageID: 26
+  [1m[36mTranscription Load (2.0ms)[0m  [1mSELECT "transcriptions".* FROM "transcriptions" WHERE (page_id = 26) ORDER BY transcription_order ASC LIMIT 1[0m
+  [1m[35mExpression Load (14.1ms)[0m  SELECT "expressions".* FROM "expressions" WHERE "expressions"."id" = 508 LIMIT 1
+  [1m[36mWork Load (33.2ms)[0m  [1m 
+		select works.work_short_code from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 5631
+ 	[0m
+  [1m[35mWork Load (0.9ms)[0m   
+		select works.work_siglum from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 5631
+ 	
+  [1m[36mLine Load (0.6ms)[0m  [1mSELECT "lines".* FROM "lines" WHERE "lines"."id" = 7224 LIMIT 1[0m
+PageID: 791
+  [1m[35mTranscription Load (2.2ms)[0m  SELECT "transcriptions".* FROM "transcriptions" WHERE (page_id = 791) ORDER BY transcription_order ASC LIMIT 1
+  [1m[36mExpression Load (1.1ms)[0m  [1mSELECT "expressions".* FROM "expressions" WHERE "expressions"."id" = 571 LIMIT 1[0m
+  [1m[35mWork Load (1.0ms)[0m   
+		select works.work_short_code from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 7224
+ 	
+  [1m[36mWork Load (1.0ms)[0m  [1m 
+		select works.work_siglum from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 7224
+ 	[0m
+  [1m[35mLine Load (0.6ms)[0m  SELECT "lines".* FROM "lines" WHERE "lines"."id" = 7485 LIMIT 1
+PageID: 469
+  [1m[36mTranscription Load (2.2ms)[0m  [1mSELECT "transcriptions".* FROM "transcriptions" WHERE (page_id = 469) ORDER BY transcription_order ASC LIMIT 1[0m
+  [1m[35mExpression Load (0.5ms)[0m  SELECT "expressions".* FROM "expressions" WHERE "expressions"."id" = 863 LIMIT 1
+  [1m[36mWork Load (0.8ms)[0m  [1m 
+		select works.work_short_code from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 7485
+ 	[0m
+  [1m[35mWork Load (0.8ms)[0m   
+		select works.work_siglum from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 7485
+ 	
+  [1m[36mLine Load (0.9ms)[0m  [1mSELECT "lines".* FROM "lines" WHERE "lines"."id" = 7672 LIMIT 1[0m
+PageID: 699
+  [1m[35mTranscription Load (2.4ms)[0m  SELECT "transcriptions".* FROM "transcriptions" WHERE (page_id = 699) ORDER BY transcription_order ASC LIMIT 1
+  [1m[36mExpression Load (48.4ms)[0m  [1mSELECT "expressions".* FROM "expressions" WHERE "expressions"."id" = 316 LIMIT 1[0m
+  [1m[35mWork Load (1.0ms)[0m   
+		select works.work_short_code from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 7672
+ 	
+  [1m[36mWork Load (1.2ms)[0m  [1m 
+		select works.work_siglum from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 7672
+ 	[0m
+  [1m[35mLine Load (0.7ms)[0m  SELECT "lines".* FROM "lines" WHERE "lines"."id" = 7928 LIMIT 1
+PageID: 90
+  [1m[36mTranscription Load (2.7ms)[0m  [1mSELECT "transcriptions".* FROM "transcriptions" WHERE (page_id = 90) ORDER BY transcription_order ASC LIMIT 1[0m
+  [1m[35mExpression Load (0.6ms)[0m  SELECT "expressions".* FROM "expressions" WHERE "expressions"."id" = 60 LIMIT 1
+  [1m[36mWork Load (1.0ms)[0m  [1m 
+		select works.work_short_code from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 7928
+ 	[0m
+  [1m[35mWork Load (0.9ms)[0m   
+		select works.work_siglum from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 7928
+ 	
+  [1m[36mLine Load (0.6ms)[0m  [1mSELECT "lines".* FROM "lines" WHERE "lines"."id" = 8332 LIMIT 1[0m
+PageID: 442
+  [1m[35mTranscription Load (2.1ms)[0m  SELECT "transcriptions".* FROM "transcriptions" WHERE (page_id = 442) ORDER BY transcription_order ASC LIMIT 1
+  [1m[36mExpression Load (0.5ms)[0m  [1mSELECT "expressions".* FROM "expressions" WHERE "expressions"."id" = 709 LIMIT 1[0m
+  [1m[35mWork Load (0.9ms)[0m   
+		select works.work_short_code from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 8332
+ 	
+  [1m[36mWork Load (0.9ms)[0m  [1m 
+		select works.work_siglum from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 8332
+ 	[0m
+  [1m[35mLine Load (0.6ms)[0m  SELECT "lines".* FROM "lines" WHERE "lines"."id" = 8770 LIMIT 1
+PageID: 774
+  [1m[36mTranscription Load (2.2ms)[0m  [1mSELECT "transcriptions".* FROM "transcriptions" WHERE (page_id = 774) ORDER BY transcription_order ASC LIMIT 1[0m
+  [1m[35mExpression Load (32.0ms)[0m  SELECT "expressions".* FROM "expressions" WHERE "expressions"."id" = 159 LIMIT 1
+  [1m[36mWork Load (1.7ms)[0m  [1m 
+		select works.work_short_code from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 8770
+ 	[0m
+  [1m[35mWork Load (1.4ms)[0m   
+		select works.work_siglum from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 8770
+ 	
+  Rendered concordance/view.html.erb within layouts/application (9616.1ms)
+Completed 200 OK in 15145ms (Views: 5737.9ms | ActiveRecord: 6126.2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:41 +0530
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/agents.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:42 +0530
+Served asset /agents.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/concordance_stop_words.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:42 +0530
+Served asset /concordance_stop_words.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:42 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/concordance_entries.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:42 +0530
+Served asset /concordance_entries.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:43 +0530
+Served asset /admin.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/confs.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:43 +0530
+Served asset /confs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/delete_object.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:43 +0530
+Served asset /delete_object.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/digital_editions.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:43 +0530
+Served asset /digital_editions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/entities.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:44 +0530
+Served asset /entities.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:44 +0530
+Served asset /event_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/expression_types.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:44 +0530
+Served asset /expression_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/expressions.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:44 +0530
+Served asset /expressions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/holding_institutions.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:45 +0530
+Served asset /holding_institutions.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/item_events.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:45 +0530
+Served asset /item_events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:45 +0530
+Served asset /items.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.9.1.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:45 +0530
+Served asset /jquery-1.9.1.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.10.3.custom.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:46 +0530
+Served asset /jquery-ui-1.10.3.custom.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.mask.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:46 +0530
+Served asset /jquery.mask.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/local_markup_mappings.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:46 +0530
+Served asset /local_markup_mappings.js - 304 Not Modified (84ms)
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:47 +0530
+Served asset /locations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/manifestation_events.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:47 +0530
+Served asset /manifestation_events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/manifestation_types.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:48 +0530
+Served asset /manifestation_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/manifestations.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:48 +0530
+Served asset /manifestations.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/manifestations_events.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:49 +0530
+Served asset /manifestations_events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/nav_categories.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:49 +0530
+Served asset /nav_categories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:49 +0530
+Served asset /pages.js - 304 Not Modified (30ms)
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:50 +0530
+Served asset /roles.js - 304 Not Modified (33ms)
+
+
+Started GET "/assets/surrogates.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:50 +0530
+Served asset /surrogates.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/system_event_types.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:50 +0530
+Served asset /system_event_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transcriptions.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:50 +0530
+Served asset /transcriptions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user_roles.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:50 +0530
+Served asset /user_roles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/view_port.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:51 +0530
+Served asset /view_port.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/works.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:51 +0530
+Served asset /works.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:52 +0530
+Served asset /application.js - 304 Not Modified (10ms)
+
+
+Started GET "/assets/zoom.js?body=1" for 127.0.0.1 at 2014-10-23 02:03:52 +0530
+Served asset /zoom.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-23 13:25:19 +0530
+Processing by SplashController#index as HTML
+  [1m[36mNavCategory Load (46.8ms)[0m  [1mSELECT "nav_categories".* FROM "nav_categories" WHERE (id IN (SELECT DISTINCT nav_category_id FROM digital_editions)) ORDER BY nav_category_order ASC[0m
+  [1m[35mDigitalEdition Load (0.9ms)[0m  SELECT "digital_editions".* FROM "digital_editions" WHERE (nav_category_id IN ( 1, 2) AND digital_edition_active LIKE 't') ORDER BY nav_category_id ASC, digital_edition_order ASC
+  [1m[36mConf Load (46.6ms)[0m  [1mSELECT "confs".* FROM "confs" WHERE "confs"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered splash/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 2057ms (Views: 1656.8ms | ActiveRecord: 133.1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:22 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (20ms)
+
+
+Started GET "/assets/agents.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:22 +0530
+Served asset /agents.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:22 +0530
+Served asset /jquery.js - 304 Not Modified (24ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:23 +0530
+Served asset /admin.js - 304 Not Modified (18ms)
+
+
+Started GET "/assets/concordance_entries.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:23 +0530
+Served asset /concordance_entries.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/concordance_stop_words.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:22 +0530
+Served asset /concordance_stop_words.js - 304 Not Modified (51ms)
+
+
+Started GET "/assets/donne.grid.css?body=1" for 127.0.0.1 at 2014-10-23 13:25:22 +0530
+Served asset /donne.grid.css - 304 Not Modified (11ms)
+
+
+Started GET "/assets/donne.main.css?body=1" for 127.0.0.1 at 2014-10-23 13:25:22 +0530
+Served asset /donne.main.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/donne.admin.css?body=1" for 127.0.0.1 at 2014-10-23 13:25:23 +0530
+Served asset /donne.admin.css - 304 Not Modified (21ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.10.3.custom.css?body=1" for 127.0.0.1 at 2014-10-23 13:25:23 +0530
+Served asset /smoothness/jquery-ui-1.10.3.custom.css - 304 Not Modified (10ms)
+
+
+Started GET "/assets/confs.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:23 +0530
+Served asset /confs.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/delete_object.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:23 +0530
+Served asset /delete_object.js - 304 Not Modified (17ms)
+
+
+Started GET "/assets/digital_editions.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:23 +0530
+Served asset /digital_editions.js - 304 Not Modified (15ms)
+
+
+Started GET "/assets/entities.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:23 +0530
+Served asset /entities.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/event_types.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:24 +0530
+Served asset /event_types.js - 304 Not Modified (16ms)
+
+
+Started GET "/assets/expression_types.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:24 +0530
+Served asset /expression_types.js - 304 Not Modified (16ms)
+
+
+Started GET "/assets/expressions.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:24 +0530
+Served asset /expressions.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/holding_institutions.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:24 +0530
+Served asset /holding_institutions.js - 304 Not Modified (11ms)
+
+
+Started GET "/assets/item_events.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:24 +0530
+Served asset /item_events.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:24 +0530
+Served asset /items.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/jquery-1.9.1.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:24 +0530
+Served asset /jquery-1.9.1.js - 304 Not Modified (17ms)
+
+
+Started GET "/assets/jquery-ui-1.10.3.custom.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:25 +0530
+Served asset /jquery-ui-1.10.3.custom.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/jquery.mask.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:25 +0530
+Served asset /jquery.mask.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/local_markup_mappings.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:25 +0530
+Served asset /local_markup_mappings.js - 304 Not Modified (16ms)
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:25 +0530
+Served asset /locations.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/manifestation_events.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:25 +0530
+Served asset /manifestation_events.js - 304 Not Modified (56ms)
+
+
+Started GET "/assets/manifestation_types.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:25 +0530
+Served asset /manifestation_types.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/manifestations.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:25 +0530
+Served asset /manifestations.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/manifestations_events.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:26 +0530
+Served asset /manifestations_events.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/nav_categories.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:26 +0530
+Served asset /nav_categories.js - 304 Not Modified (13ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:26 +0530
+Served asset /pages.js - 304 Not Modified (15ms)
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:26 +0530
+Served asset /roles.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/surrogates.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:26 +0530
+Served asset /surrogates.js - 304 Not Modified (11ms)
+
+
+Started GET "/assets/system_event_types.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:26 +0530
+Served asset /system_event_types.js - 304 Not Modified (11ms)
+
+
+Started GET "/assets/transcriptions.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:26 +0530
+Served asset /transcriptions.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/user_roles.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:26 +0530
+Served asset /user_roles.js - 304 Not Modified (15ms)
+
+
+Started GET "/assets/view_port.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:27 +0530
+Served asset /view_port.js - 304 Not Modified (17ms)
+
+
+Started GET "/assets/works.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:27 +0530
+Served asset /works.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/zoom.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:27 +0530
+Served asset /zoom.js - 304 Not Modified (13ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:27 +0530
+Served asset /application.js - 304 Not Modified (166ms)
+
+
+Started GET "/assets/3.gif" for 127.0.0.1 at 2014-10-23 13:25:27 +0530
+Served asset /3.gif - 304 Not Modified (12ms)
+
+
+Started GET "/assets/donne-logo.gif" for 127.0.0.1 at 2014-10-23 13:25:27 +0530
+Served asset /donne-logo.gif - 304 Not Modified (4ms)
+
+
+Started GET "/assets/arch-960.jpg" for 127.0.0.1 at 2014-10-23 13:25:28 +0530
+Served asset /arch-960.jpg - 304 Not Modified (7ms)
+
+
+Started GET "/assets/smoothness/images/ui-bg_flat_75_ffffff_40x100.png" for 127.0.0.1 at 2014-10-23 13:25:28 +0530
+Served asset /smoothness/images/ui-bg_flat_75_ffffff_40x100.png - 304 Not Modified (3ms)
+
+
+Started GET "/assets/smoothness/images/ui-icons_222222_256x240.png" for 127.0.0.1 at 2014-10-23 13:25:28 +0530
+Served asset /smoothness/images/ui-icons_222222_256x240.png - 304 Not Modified (6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-23 13:25:28 +0530
+Processing by SplashController#index as HTML
+  [1m[35mNavCategory Load (1.3ms)[0m  SELECT "nav_categories".* FROM "nav_categories" WHERE (id IN (SELECT DISTINCT nav_category_id FROM digital_editions)) ORDER BY nav_category_order ASC
+  [1m[36mDigitalEdition Load (1.5ms)[0m  [1mSELECT "digital_editions".* FROM "digital_editions" WHERE (nav_category_id IN ( 1, 2) AND digital_edition_active LIKE 't') ORDER BY nav_category_id ASC, digital_edition_order ASC[0m
+  [1m[35mConf Load (0.8ms)[0m  SELECT "confs".* FROM "confs" WHERE "confs"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered splash/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 422ms (Views: 411.6ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:29 +0530
+Served asset /jquery.js - 304 Not Modified (11ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:29 +0530
+Served asset /admin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:29 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/agents.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:29 +0530
+Served asset /agents.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/concordance_entries.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:29 +0530
+Served asset /concordance_entries.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/concordance_stop_words.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:29 +0530
+Served asset /concordance_stop_words.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/donne.grid.css?body=1" for 127.0.0.1 at 2014-10-23 13:25:29 +0530
+Served asset /donne.grid.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/donne.main.css?body=1" for 127.0.0.1 at 2014-10-23 13:25:30 +0530
+Served asset /donne.main.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/donne.admin.css?body=1" for 127.0.0.1 at 2014-10-23 13:25:30 +0530
+Served asset /donne.admin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.10.3.custom.css?body=1" for 127.0.0.1 at 2014-10-23 13:25:30 +0530
+Served asset /smoothness/jquery-ui-1.10.3.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/confs.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:30 +0530
+Served asset /confs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/delete_object.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:30 +0530
+Served asset /delete_object.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/digital_editions.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:30 +0530
+Served asset /digital_editions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/entities.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:31 +0530
+Served asset /entities.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:31 +0530
+Served asset /event_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/expression_types.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:31 +0530
+Served asset /expression_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/expressions.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:31 +0530
+Served asset /expressions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/holding_institutions.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:31 +0530
+Served asset /holding_institutions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:31 +0530
+Served asset /items.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/item_events.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:31 +0530
+Served asset /item_events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.9.1.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:32 +0530
+Served asset /jquery-1.9.1.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.10.3.custom.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:32 +0530
+Served asset /jquery-ui-1.10.3.custom.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.mask.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:32 +0530
+Served asset /jquery.mask.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/local_markup_mappings.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:32 +0530
+Served asset /local_markup_mappings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:32 +0530
+Served asset /locations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/manifestation_events.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:32 +0530
+Served asset /manifestation_events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/manifestation_types.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:32 +0530
+Served asset /manifestation_types.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/manifestations.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:32 +0530
+Served asset /manifestations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/manifestations_events.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:33 +0530
+Served asset /manifestations_events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/nav_categories.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:33 +0530
+Served asset /nav_categories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:33 +0530
+Served asset /pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:33 +0530
+Served asset /roles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/surrogates.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:33 +0530
+Served asset /surrogates.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/system_event_types.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:33 +0530
+Served asset /system_event_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transcriptions.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:33 +0530
+Served asset /transcriptions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user_roles.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:34 +0530
+Served asset /user_roles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/view_port.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:34 +0530
+Served asset /view_port.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/works.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:34 +0530
+Served asset /works.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zoom.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:34 +0530
+Served asset /zoom.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-23 13:25:34 +0530
+Served asset /application.js - 304 Not Modified (22ms)
+
+
+Started GET "/assets/3.gif" for 127.0.0.1 at 2014-10-23 13:25:34 +0530
+Served asset /3.gif - 304 Not Modified (0ms)
+
+
+Started GET "/assets/donne-logo.gif" for 127.0.0.1 at 2014-10-23 13:25:34 +0530
+Served asset /donne-logo.gif - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/images/ui-icons_222222_256x240.png" for 127.0.0.1 at 2014-10-23 13:25:35 +0530
+Served asset /smoothness/images/ui-icons_222222_256x240.png - 200 OK (0ms)
+
+
+Started GET "/assets/smoothness/images/ui-bg_flat_75_ffffff_40x100.png" for 127.0.0.1 at 2014-10-23 13:25:35 +0530
+Served asset /smoothness/images/ui-bg_flat_75_ffffff_40x100.png - 200 OK (0ms)
+
+
+Started GET "/assets/arch-960.jpg" for 127.0.0.1 at 2014-10-23 13:25:35 +0530
+Served asset /arch-960.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/ed/1" for 127.0.0.1 at 2014-10-23 13:44:42 +0530
+Processing by EditionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDigitalEdition Load (1.2ms)[0m  [1mSELECT "digital_editions".* FROM "digital_editions" WHERE "digital_editions"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mPage Load (309.7ms)[0m  SELECT "pages".* FROM "pages" WHERE (digital_edition_id = 1) ORDER BY page_page ASC LIMIT 1
+  [1m[36mDigitalEdition Load (1.2ms)[0m  [1mSELECT "digital_editions".* FROM "digital_editions" WHERE "digital_editions"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "digital_editions".* FROM "digital_editions" WHERE "digital_editions"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mManifestation Load (0.5ms)[0m  [1mSELECT "manifestations".* FROM "manifestations" WHERE "manifestations"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mNavCategory Load (0.7ms)[0m  SELECT "nav_categories".* FROM "nav_categories" WHERE (id IN (SELECT DISTINCT nav_category_id FROM digital_editions)) ORDER BY nav_category_order ASC
+  [1m[36mDigitalEdition Load (0.7ms)[0m  [1mSELECT "digital_editions".* FROM "digital_editions" WHERE (nav_category_id IN ( 1, 2) AND digital_edition_active LIKE 't') ORDER BY nav_category_id ASC, digital_edition_order ASC[0m
+  Rendered editions/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 1269ms (Views: 443.8ms | ActiveRecord: 316.5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:43 +0530
+Served asset /jquery.js - 304 Not Modified (17ms)
+
+
+Started GET "/assets/concordance_stop_words.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:43 +0530
+Served asset /concordance_stop_words.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:43 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:44 +0530
+Served asset /admin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/concordance_entries.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:44 +0530
+Served asset /concordance_entries.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/agents.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:44 +0530
+Served asset /agents.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/donne.grid.css?body=1" for 127.0.0.1 at 2014-10-23 13:44:44 +0530
+Served asset /donne.grid.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/donne.main.css?body=1" for 127.0.0.1 at 2014-10-23 13:44:44 +0530
+Served asset /donne.main.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/donne.admin.css?body=1" for 127.0.0.1 at 2014-10-23 13:44:44 +0530
+Served asset /donne.admin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.10.3.custom.css?body=1" for 127.0.0.1 at 2014-10-23 13:44:44 +0530
+Served asset /smoothness/jquery-ui-1.10.3.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/confs.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:45 +0530
+Served asset /confs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/delete_object.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:45 +0530
+Served asset /delete_object.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/digital_editions.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:45 +0530
+Served asset /digital_editions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/entities.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:45 +0530
+Served asset /entities.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:45 +0530
+Served asset /event_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/expression_types.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:45 +0530
+Served asset /expression_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/expressions.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:46 +0530
+Served asset /expressions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/holding_institutions.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:46 +0530
+Served asset /holding_institutions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/item_events.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:46 +0530
+Served asset /item_events.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:46 +0530
+Served asset /items.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.9.1.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:46 +0530
+Served asset /jquery-1.9.1.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.10.3.custom.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:46 +0530
+Served asset /jquery-ui-1.10.3.custom.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.mask.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:46 +0530
+Served asset /jquery.mask.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/local_markup_mappings.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:47 +0530
+Served asset /local_markup_mappings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:47 +0530
+Served asset /locations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/manifestation_events.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:47 +0530
+Served asset /manifestation_events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/manifestation_types.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:47 +0530
+Served asset /manifestation_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/manifestations.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:47 +0530
+Served asset /manifestations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/manifestations_events.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:47 +0530
+Served asset /manifestations_events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/nav_categories.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:47 +0530
+Served asset /nav_categories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:48 +0530
+Served asset /pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:48 +0530
+Served asset /roles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/surrogates.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:48 +0530
+Served asset /surrogates.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/system_event_types.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:48 +0530
+Served asset /system_event_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transcriptions.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:48 +0530
+Served asset /transcriptions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user_roles.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:48 +0530
+Served asset /user_roles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/view_port.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:48 +0530
+Served asset /view_port.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/works.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:49 +0530
+Served asset /works.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zoom.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:49 +0530
+Served asset /zoom.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:49 +0530
+Served asset /application.js - 304 Not Modified (29ms)
+
+
+Started GET "/assets/3.gif" for 127.0.0.1 at 2014-10-23 13:44:49 +0530
+Served asset /3.gif - 304 Not Modified (0ms)
+
+
+Started GET "/assets/donne-logo.gif" for 127.0.0.1 at 2014-10-23 13:44:49 +0530
+Served asset /donne-logo.gif - 304 Not Modified (0ms)
+
+
+Started GET "/edition/1/concordance" for 127.0.0.1 at 2014-10-23 13:44:52 +0530
+Processing by ConcordanceController#showedition as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPage Load (2.7ms)[0m  SELECT "pages".* FROM "pages" WHERE (digital_edition_id = 1) ORDER BY page_page ASC LIMIT 1
+  [1m[36mDigitalEdition Load (0.3ms)[0m  [1mSELECT "digital_editions".* FROM "digital_editions" WHERE "digital_editions"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "digital_editions".* FROM "digital_editions" WHERE "digital_editions"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mManifestation Load (0.3ms)[0m  [1mSELECT "manifestations".* FROM "manifestations" WHERE "manifestations"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (1284.5ms)[0m  SELECT COUNT(*) FROM "concordance_entries" INNER JOIN "digital_edition_has_concordance_entry_totals" ON "digital_edition_has_concordance_entry_totals"."concordance_entry_id" = "concordance_entries"."id" WHERE (digital_edition_id = '1')
+  [1m[36m (1.5ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "concordance_entries" INNER JOIN "digital_edition_has_concordance_entry_totals" ON "digital_edition_has_concordance_entry_totals"."concordance_entry_id" = "concordance_entries"."id" WHERE (digital_edition_id = '1') LIMIT 68 OFFSET 0) subquery_for_count [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "concordance_entries" INNER JOIN "digital_edition_has_concordance_entry_totals" ON "digital_edition_has_concordance_entry_totals"."concordance_entry_id" = "concordance_entries"."id" WHERE (digital_edition_id = '1') LIMIT 68 OFFSET 0) subquery_for_count 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "concordance_entries" INNER JOIN "digital_edition_has_concordance_entry_totals" ON "digital_edition_has_concordance_entry_totals"."concordance_entry_id" = "concordance_entries"."id" WHERE (digital_edition_id = '1') LIMIT 68 OFFSET 0) subquery_for_count [0m
+  [1m[35mConcordanceEntry Load (68.4ms)[0m  SELECT "concordance_entries".* FROM "concordance_entries" INNER JOIN "digital_edition_has_concordance_entry_totals" ON "digital_edition_has_concordance_entry_totals"."concordance_entry_id" = "concordance_entries"."id" WHERE (digital_edition_id = '1') ORDER BY concordance_entry_token LIMIT 68 OFFSET 0
+  [1m[36mDigitalEditionHasConcordanceEntryTotal Load (1.8ms)[0m  [1mSELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 3119 AND digital_edition_id = 1) LIMIT 1[0m
+  [1m[35mDigitalEditionHasConcordanceEntryTotal Load (1.0ms)[0m  SELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 1992 AND digital_edition_id = 1) LIMIT 1
+  [1m[36mDigitalEditionHasConcordanceEntryTotal Load (1.4ms)[0m  [1mSELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 3526 AND digital_edition_id = 1) LIMIT 1[0m
+  [1m[35mDigitalEditionHasConcordanceEntryTotal Load (2.0ms)[0m  SELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 5312 AND digital_edition_id = 1) LIMIT 1
+  [1m[36mDigitalEditionHasConcordanceEntryTotal Load (1.6ms)[0m  [1mSELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 2752 AND digital_edition_id = 1) LIMIT 1[0m
+  [1m[35mDigitalEditionHasConcordanceEntryTotal Load (1.2ms)[0m  SELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 2894 AND digital_edition_id = 1) LIMIT 1
+  [1m[36mDigitalEditionHasConcordanceEntryTotal Load (2.1ms)[0m  [1mSELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 4916 AND digital_edition_id = 1) LIMIT 1[0m
+  [1m[35mDigitalEditionHasConcordanceEntryTotal Load (3.4ms)[0m  SELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 8096 AND digital_edition_id = 1) LIMIT 1
+  [1m[36mDigitalEditionHasConcordanceEntryTotal Load (1.7ms)[0m  [1mSELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 4220 AND digital_edition_id = 1) LIMIT 1[0m
+  [1m[35mDigitalEditionHasConcordanceEntryTotal Load (1.7ms)[0m  SELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 2806 AND digital_edition_id = 1) LIMIT 1
+  [1m[36mDigitalEditionHasConcordanceEntryTotal Load (1.9ms)[0m  [1mSELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 3831 AND digital_edition_id = 1) LIMIT 1[0m
+  [1m[35mDigitalEditionHasConcordanceEntryTotal Load (2.0ms)[0m  SELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 3931 AND digital_edition_id = 1) LIMIT 1
+  [1m[36mDigitalEditionHasConcordanceEntryTotal Load (3.1ms)[0m  [1mSELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 7676 AND digital_edition_id = 1) LIMIT 1[0m
+  [1m[35mDigitalEditionHasConcordanceEntryTotal Load (1.5ms)[0m  SELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 2499 AND digital_edition_id = 1) LIMIT 1
+  [1m[36mDigitalEditionHasConcordanceEntryTotal Load (1.8ms)[0m  [1mSELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 3615 AND digital_edition_id = 1) LIMIT 1[0m
+  [1m[35mDigitalEditionHasConcordanceEntryTotal Load (1.6ms)[0m  SELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 3135 AND digital_edition_id = 1) LIMIT 1
+  [1m[36mDigitalEditionHasConcordanceEntryTotal Load (3.2ms)[0m  [1mSELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 7711 AND digital_edition_id = 1) LIMIT 1[0m
+  [1m[35mDigitalEditionHasConcordanceEntryTotal Load (0.8ms)[0m  SELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 337 AND digital_edition_id = 1) LIMIT 1
+  [1m[36mDigitalEditionHasConcordanceEntryTotal Load (1.4ms)[0m  [1mSELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 1731 AND digital_edition_id = 1) LIMIT 1[0m
+  [1m[35mDigitalEditionHasConcordanceEntryTotal Load (1.4ms)[0m  SELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 2282 AND digital_edition_id = 1) LIMIT 1
+  [1m[36mDigitalEditionHasConcordanceEntryTotal Load (1.5ms)[0m  [1mSELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 2464 AND digital_edition_id = 1) LIMIT 1[0m
+  [1m[35mDigitalEditionHasConcordanceEntryTotal Load (1.8ms)[0m  SELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 3230 AND digital_edition_id = 1) LIMIT 1
+  [1m[36mDigitalEditionHasConcordanceEntryTotal Load (0.8ms)[0m  [1mSELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 235 AND digital_edition_id = 1) LIMIT 1[0m
+  [1m[35mDigitalEditionHasConcordanceEntryTotal Load (1.4ms)[0m  SELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 2009 AND digital_edition_id = 1) LIMIT 1
+  [1m[36mDigitalEditionHasConcordanceEntryTotal Load (0.8ms)[0m  [1mSELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 40 AND digital_edition_id = 1) LIMIT 1[0m
+  [1m[35mDigitalEditionHasConcordanceEntryTotal Load (2.5ms)[0m  SELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 5045 AND digital_edition_id = 1) LIMIT 1
+  [1m[36mDigitalEditionHasConcordanceEntryTotal Load (2.9ms)[0m  [1mSELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 6216 AND digital_edition_id = 1) LIMIT 1[0m
+  [1m[35mDigitalEditionHasConcordanceEntryTotal Load (2.7ms)[0m  SELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 5560 AND digital_edition_id = 1) LIMIT 1
+  [1m[36mDigitalEditionHasConcordanceEntryTotal Load (3.7ms)[0m  [1mSELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 8029 AND digital_edition_id = 1) LIMIT 1[0m
+  [1m[35mDigitalEditionHasConcordanceEntryTotal Load (3.6ms)[0m  SELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 7810 AND digital_edition_id = 1) LIMIT 1
+  [1m[36mDigitalEditionHasConcordanceEntryTotal Load (1.1ms)[0m  [1mSELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 1337 AND digital_edition_id = 1) LIMIT 1[0m
+  [1m[35mDigitalEditionHasConcordanceEntryTotal Load (1.4ms)[0m  SELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 1386 AND digital_edition_id = 1) LIMIT 1
+  [1m[36mDigitalEditionHasConcordanceEntryTotal Load (1.0ms)[0m  [1mSELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 1365 AND digital_edition_id = 1) LIMIT 1[0m
+  [1m[35mDigitalEditionHasConcordanceEntryTotal Load (2.6ms)[0m  SELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 7934 AND digital_edition_id = 1) LIMIT 1
+  [1m[36mDigitalEditionHasConcordanceEntryTotal Load (1.5ms)[0m  [1mSELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 3838 AND digital_edition_id = 1) LIMIT 1[0m
+  [1m[35mDigitalEditionHasConcordanceEntryTotal Load (1.7ms)[0m  SELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 4829 AND digital_edition_id = 1) LIMIT 1
+  [1m[36mDigitalEditionHasConcordanceEntryTotal Load (0.8ms)[0m  [1mSELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 568 AND digital_edition_id = 1) LIMIT 1[0m
+  [1m[35mDigitalEditionHasConcordanceEntryTotal Load (2.3ms)[0m  SELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 7060 AND digital_edition_id = 1) LIMIT 1
+  [1m[36mDigitalEditionHasConcordanceEntryTotal Load (2.2ms)[0m  [1mSELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 6680 AND digital_edition_id = 1) LIMIT 1[0m
+  [1m[35mDigitalEditionHasConcordanceEntryTotal Load (1.2ms)[0m  SELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 1860 AND digital_edition_id = 1) LIMIT 1
+  [1m[36mDigitalEditionHasConcordanceEntryTotal Load (1.2ms)[0m  [1mSELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 2527 AND digital_edition_id = 1) LIMIT 1[0m
+  [1m[35mDigitalEditionHasConcordanceEntryTotal Load (0.9ms)[0m  SELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 1139 AND digital_edition_id = 1) LIMIT 1
+  [1m[36mDigitalEditionHasConcordanceEntryTotal Load (1.1ms)[0m  [1mSELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 2048 AND digital_edition_id = 1) LIMIT 1[0m
+  [1m[35mDigitalEditionHasConcordanceEntryTotal Load (1.7ms)[0m  SELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 4918 AND digital_edition_id = 1) LIMIT 1
+  [1m[36mDigitalEditionHasConcordanceEntryTotal Load (1.8ms)[0m  [1mSELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 4374 AND digital_edition_id = 1) LIMIT 1[0m
+  [1m[35mDigitalEditionHasConcordanceEntryTotal Load (1.0ms)[0m  SELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 1792 AND digital_edition_id = 1) LIMIT 1
+  [1m[36mDigitalEditionHasConcordanceEntryTotal Load (1.3ms)[0m  [1mSELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 2805 AND digital_edition_id = 1) LIMIT 1[0m
+  [1m[35mDigitalEditionHasConcordanceEntryTotal Load (2.1ms)[0m  SELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 5704 AND digital_edition_id = 1) LIMIT 1
+  [1m[36mDigitalEditionHasConcordanceEntryTotal Load (1.1ms)[0m  [1mSELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 2269 AND digital_edition_id = 1) LIMIT 1[0m
+  [1m[35mDigitalEditionHasConcordanceEntryTotal Load (1.8ms)[0m  SELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 5047 AND digital_edition_id = 1) LIMIT 1
+  [1m[36mDigitalEditionHasConcordanceEntryTotal Load (1.9ms)[0m  [1mSELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 4186 AND digital_edition_id = 1) LIMIT 1[0m
+  [1m[35mDigitalEditionHasConcordanceEntryTotal Load (2.1ms)[0m  SELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 6163 AND digital_edition_id = 1) LIMIT 1
+  [1m[36mDigitalEditionHasConcordanceEntryTotal Load (1.1ms)[0m  [1mSELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 1861 AND digital_edition_id = 1) LIMIT 1[0m
+  [1m[35mDigitalEditionHasConcordanceEntryTotal Load (1.4ms)[0m  SELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 3249 AND digital_edition_id = 1) LIMIT 1
+  [1m[36mDigitalEditionHasConcordanceEntryTotal Load (3.0ms)[0m  [1mSELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 7614 AND digital_edition_id = 1) LIMIT 1[0m
+  [1m[35mDigitalEditionHasConcordanceEntryTotal Load (3.9ms)[0m  SELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 7371 AND digital_edition_id = 1) LIMIT 1
+  [1m[36mDigitalEditionHasConcordanceEntryTotal Load (3.3ms)[0m  [1mSELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 5565 AND digital_edition_id = 1) LIMIT 1[0m
+  [1m[35mDigitalEditionHasConcordanceEntryTotal Load (5.6ms)[0m  SELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 8010 AND digital_edition_id = 1) LIMIT 1
+  [1m[36mDigitalEditionHasConcordanceEntryTotal Load (3.0ms)[0m  [1mSELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 7267 AND digital_edition_id = 1) LIMIT 1[0m
+  [1m[35mDigitalEditionHasConcordanceEntryTotal Load (1.7ms)[0m  SELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 3945 AND digital_edition_id = 1) LIMIT 1
+  [1m[36mDigitalEditionHasConcordanceEntryTotal Load (1.9ms)[0m  [1mSELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 5433 AND digital_edition_id = 1) LIMIT 1[0m
+  [1m[35mDigitalEditionHasConcordanceEntryTotal Load (1.9ms)[0m  SELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 5607 AND digital_edition_id = 1) LIMIT 1
+  [1m[36mDigitalEditionHasConcordanceEntryTotal Load (2.1ms)[0m  [1mSELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 6072 AND digital_edition_id = 1) LIMIT 1[0m
+  [1m[35mDigitalEditionHasConcordanceEntryTotal Load (1.9ms)[0m  SELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 5321 AND digital_edition_id = 1) LIMIT 1
+  [1m[36mDigitalEditionHasConcordanceEntryTotal Load (1.4ms)[0m  [1mSELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 3443 AND digital_edition_id = 1) LIMIT 1[0m
+  [1m[35mDigitalEditionHasConcordanceEntryTotal Load (2.5ms)[0m  SELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 6964 AND digital_edition_id = 1) LIMIT 1
+  [1m[36mDigitalEditionHasConcordanceEntryTotal Load (2.1ms)[0m  [1mSELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 6425 AND digital_edition_id = 1) LIMIT 1[0m
+  [1m[35mDigitalEditionHasConcordanceEntryTotal Load (2.0ms)[0m  SELECT "digital_edition_has_concordance_entry_totals".* FROM "digital_edition_has_concordance_entry_totals" WHERE (concordance_entry_id = 5279 AND digital_edition_id = 1) LIMIT 1
+  Rendered concordance/show.html.erb within layouts/application (1967.8ms)
+Completed 200 OK in 2406ms (Views: 887.5ms | ActiveRecord: 1491.5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:55 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:55 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/agents.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:55 +0530
+Served asset /agents.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/concordance_stop_words.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:55 +0530
+Served asset /concordance_stop_words.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:55 +0530
+Served asset /admin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/concordance_entries.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:55 +0530
+Served asset /concordance_entries.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/donne.grid.css?body=1" for 127.0.0.1 at 2014-10-23 13:44:55 +0530
+Served asset /donne.grid.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/donne.main.css?body=1" for 127.0.0.1 at 2014-10-23 13:44:56 +0530
+Served asset /donne.main.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/donne.admin.css?body=1" for 127.0.0.1 at 2014-10-23 13:44:56 +0530
+Served asset /donne.admin.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.10.3.custom.css?body=1" for 127.0.0.1 at 2014-10-23 13:44:56 +0530
+Served asset /smoothness/jquery-ui-1.10.3.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/confs.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:56 +0530
+Served asset /confs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/delete_object.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:56 +0530
+Served asset /delete_object.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/digital_editions.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:56 +0530
+Served asset /digital_editions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:57 +0530
+Served asset /event_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/entities.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:57 +0530
+Served asset /entities.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/expression_types.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:57 +0530
+Served asset /expression_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/expressions.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:57 +0530
+Served asset /expressions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/holding_institutions.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:57 +0530
+Served asset /holding_institutions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/item_events.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:57 +0530
+Served asset /item_events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:58 +0530
+Served asset /items.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.9.1.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:58 +0530
+Served asset /jquery-1.9.1.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.10.3.custom.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:58 +0530
+Served asset /jquery-ui-1.10.3.custom.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.mask.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:58 +0530
+Served asset /jquery.mask.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/local_markup_mappings.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:58 +0530
+Served asset /local_markup_mappings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:58 +0530
+Served asset /locations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/manifestation_events.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:58 +0530
+Served asset /manifestation_events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/manifestation_types.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:59 +0530
+Served asset /manifestation_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/manifestations.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:59 +0530
+Served asset /manifestations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/manifestations_events.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:59 +0530
+Served asset /manifestations_events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/nav_categories.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:59 +0530
+Served asset /nav_categories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:59 +0530
+Served asset /pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:59 +0530
+Served asset /roles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/surrogates.js?body=1" for 127.0.0.1 at 2014-10-23 13:44:59 +0530
+Served asset /surrogates.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/system_event_types.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:00 +0530
+Served asset /system_event_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transcriptions.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:00 +0530
+Served asset /transcriptions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user_roles.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:00 +0530
+Served asset /user_roles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/view_port.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:00 +0530
+Served asset /view_port.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/works.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:00 +0530
+Served asset /works.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zoom.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:00 +0530
+Served asset /zoom.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:00 +0530
+Served asset /application.js - 304 Not Modified (12ms)
+
+
+Started GET "/assets/3.gif" for 127.0.0.1 at 2014-10-23 13:45:01 +0530
+Served asset /3.gif - 304 Not Modified (0ms)
+
+
+Started GET "/assets/donne-logo.gif" for 127.0.0.1 at 2014-10-23 13:45:01 +0530
+Served asset /donne-logo.gif - 304 Not Modified (0ms)
+
+
+Started GET "/edition/1/concordance/3230" for 127.0.0.1 at 2014-10-23 13:45:03 +0530
+Processing by ConcordanceController#showeditem as HTML
+  Parameters: {"id"=>"1", "it"=>"3230"}
+  [1m[36mDigitalEdition Load (1.1ms)[0m  [1mSELECT "digital_editions".* FROM "digital_editions" WHERE "digital_editions"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mManifestation Load (0.8ms)[0m  SELECT "manifestations".* FROM "manifestations" WHERE "manifestations"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mConcordanceEntry Load (1.0ms)[0m  [1mSELECT "concordance_entries".* FROM "concordance_entries" WHERE "concordance_entries"."id" = ? LIMIT 1[0m  [["id", "3230"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "digital_editions".* FROM "digital_editions" WHERE "digital_editions"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "manifestations".* FROM "manifestations" WHERE "manifestations"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mExpressionsHasManifestations Load (18.6ms)[0m  SELECT "expressions_has_manifestations".* FROM "expressions_has_manifestations" WHERE (manifestation_id = 1) LIMIT 1
+  [1m[36mExpression Load (0.6ms)[0m  [1mSELECT "expressions".* FROM "expressions" WHERE "expressions"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mWork Load (0.5ms)[0m  SELECT "works".* FROM "works" WHERE "works"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPage Load (3.9ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE (digital_edition_id = 1) ORDER BY page_page ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "digital_editions".* FROM "digital_editions" WHERE "digital_editions"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (450.4ms)[0m  [1mSELECT COUNT(*) FROM "digital_edition_has_concordance_entries" INNER JOIN "lines" ON "lines"."id" = "digital_edition_has_concordance_entries"."line_id" WHERE (digital_edition_has_concordance_entries.digital_edition_id = 1 AND digital_edition_has_concordance_entries.concordance_entry_id = 3230)[0m
+  [1m[35mDigitalEditionHasConcordanceEntry Load (178.9ms)[0m  SELECT "digital_edition_has_concordance_entries".* FROM "digital_edition_has_concordance_entries" INNER JOIN "lines" ON "lines"."id" = "digital_edition_has_concordance_entries"."line_id" WHERE (digital_edition_has_concordance_entries.digital_edition_id = 1 AND digital_edition_has_concordance_entries.concordance_entry_id = 3230) ORDER BY lines.line_digital_edition_order ASC LIMIT 20 OFFSET 0
+  [1m[36mLine Load (1.0ms)[0m  [1mSELECT "lines".* FROM "lines" WHERE "lines"."id" = 1883 LIMIT 1[0m
+PageID: 93
+  [1m[35mTranscription Load (474.2ms)[0m  SELECT "transcriptions".* FROM "transcriptions" WHERE (page_id = 93) ORDER BY transcription_order ASC LIMIT 1
+  [1m[36mExpression Load (0.6ms)[0m  [1mSELECT "expressions".* FROM "expressions" WHERE "expressions"."id" = 64 LIMIT 1[0m
+  [1m[35mWork Load (78.4ms)[0m   
+		select works.work_short_code from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 1883
+ 	
+  [1m[36mWork Load (1.1ms)[0m  [1m 
+		select works.work_siglum from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 1883
+ 	[0m
+  [1m[35mLine Load (0.7ms)[0m  SELECT "lines".* FROM "lines" WHERE "lines"."id" = 1884 LIMIT 1
+PageID: 93
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "transcriptions".* FROM "transcriptions" WHERE (page_id = 93) ORDER BY transcription_order ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "expressions".* FROM "expressions" WHERE "expressions"."id" = 64 LIMIT 1
+  [1m[36mWork Load (1.1ms)[0m  [1m 
+		select works.work_short_code from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 1884
+ 	[0m
+  [1m[35mWork Load (0.9ms)[0m   
+		select works.work_siglum from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 1884
+ 	
+  [1m[36mLine Load (0.6ms)[0m  [1mSELECT "lines".* FROM "lines" WHERE "lines"."id" = 3949 LIMIT 1[0m
+PageID: 315
+  [1m[35mTranscription Load (1.9ms)[0m  SELECT "transcriptions".* FROM "transcriptions" WHERE (page_id = 315) ORDER BY transcription_order ASC LIMIT 1
+  [1m[36mExpression Load (19.0ms)[0m  [1mSELECT "expressions".* FROM "expressions" WHERE "expressions"."id" = 685 LIMIT 1[0m
+  [1m[35mWork Load (1.2ms)[0m   
+		select works.work_short_code from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 3949
+ 	
+  [1m[36mWork Load (1.0ms)[0m  [1m 
+		select works.work_siglum from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 3949
+ 	[0m
+  [1m[35mLine Load (0.5ms)[0m  SELECT "lines".* FROM "lines" WHERE "lines"."id" = 5585 LIMIT 1
+PageID: 20
+  [1m[36mTranscription Load (2.3ms)[0m  [1mSELECT "transcriptions".* FROM "transcriptions" WHERE (page_id = 20) ORDER BY transcription_order ASC LIMIT 1[0m
+  [1m[35mExpression Load (0.8ms)[0m  SELECT "expressions".* FROM "expressions" WHERE "expressions"."id" = 508 LIMIT 1
+  [1m[36mWork Load (1.1ms)[0m  [1m 
+		select works.work_short_code from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 5585
+ 	[0m
+  [1m[35mWork Load (0.9ms)[0m   
+		select works.work_siglum from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 5585
+ 	
+  [1m[36mLine Load (0.5ms)[0m  [1mSELECT "lines".* FROM "lines" WHERE "lines"."id" = 7373 LIMIT 1[0m
+PageID: 191
+  [1m[35mTranscription Load (2.3ms)[0m  SELECT "transcriptions".* FROM "transcriptions" WHERE (page_id = 191) ORDER BY transcription_order ASC LIMIT 1
+  [1m[36mExpression Load (0.6ms)[0m  [1mSELECT "expressions".* FROM "expressions" WHERE "expressions"."id" = 460 LIMIT 1[0m
+  [1m[35mWork Load (1.0ms)[0m   
+		select works.work_short_code from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 7373
+ 	
+  [1m[36mWork Load (0.9ms)[0m  [1m 
+		select works.work_siglum from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 7373
+ 	[0m
+  [1m[35mLine Load (0.6ms)[0m  SELECT "lines".* FROM "lines" WHERE "lines"."id" = 7376 LIMIT 1
+PageID: 191
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "transcriptions".* FROM "transcriptions" WHERE (page_id = 191) ORDER BY transcription_order ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "expressions".* FROM "expressions" WHERE "expressions"."id" = 460 LIMIT 1
+  [1m[36mWork Load (1.0ms)[0m  [1m 
+		select works.work_short_code from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 7376
+ 	[0m
+  [1m[35mWork Load (1.0ms)[0m   
+		select works.work_siglum from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 7376
+ 	
+  [1m[36mLine Load (0.5ms)[0m  [1mSELECT "lines".* FROM "lines" WHERE "lines"."id" = 8307 LIMIT 1[0m
+PageID: 442
+  [1m[35mTranscription Load (6.7ms)[0m  SELECT "transcriptions".* FROM "transcriptions" WHERE (page_id = 442) ORDER BY transcription_order ASC LIMIT 1
+  [1m[36mExpression Load (0.8ms)[0m  [1mSELECT "expressions".* FROM "expressions" WHERE "expressions"."id" = 709 LIMIT 1[0m
+  [1m[35mWork Load (0.9ms)[0m   
+		select works.work_short_code from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 8307
+ 	
+  [1m[36mWork Load (0.8ms)[0m  [1m 
+		select works.work_siglum from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 8307
+ 	[0m
+  [1m[35mLine Load (0.4ms)[0m  SELECT "lines".* FROM "lines" WHERE "lines"."id" = 9087 LIMIT 1
+PageID: 780
+  [1m[36mTranscription Load (1.9ms)[0m  [1mSELECT "transcriptions".* FROM "transcriptions" WHERE (page_id = 780) ORDER BY transcription_order ASC LIMIT 1[0m
+  [1m[35mExpression Load (0.4ms)[0m  SELECT "expressions".* FROM "expressions" WHERE "expressions"."id" = 358 LIMIT 1
+  [1m[36mWork Load (0.8ms)[0m  [1m 
+		select works.work_short_code from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 9087
+ 	[0m
+  [1m[35mWork Load (0.7ms)[0m   
+		select works.work_siglum from lines INNER JOIN digital_editions ON lines.digital_edition_id = digital_editions.id INNER JOIN manifestations ON manifestations.id = digital_editions.manifestation_id INNER JOIN expressions_has_manifestations ON expressions_has_manifestations.manifestation_id = manifestations.id INNER JOIN expressions ON expressions.id = expressions_has_manifestations .expression_id INNER JOIN works ON works.id = expressions.work_id
+		where expressions_has_manifestations .expression_id = digital_editions.manifestation_id AND
+		expressions_has_manifestations.expression_has_manifestation_primary = 1
+		AND lines.id = 9087
+ 	
+  Rendered concordance/view.html.erb within layouts/application (1520.6ms)
+Completed 200 OK in 2184ms (Views: 731.1ms | ActiveRecord: 1270.1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:06 +0530
+Served asset /jquery.js - 304 Not Modified (13ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:06 +0530
+Served asset /admin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/concordance_entries.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:06 +0530
+Served asset /concordance_entries.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/agents.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:06 +0530
+Served asset /agents.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:06 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/concordance_stop_words.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:06 +0530
+Served asset /concordance_stop_words.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/donne.grid.css?body=1" for 127.0.0.1 at 2014-10-23 13:45:06 +0530
+Served asset /donne.grid.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/donne.main.css?body=1" for 127.0.0.1 at 2014-10-23 13:45:07 +0530
+Served asset /donne.main.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/donne.admin.css?body=1" for 127.0.0.1 at 2014-10-23 13:45:07 +0530
+Served asset /donne.admin.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.10.3.custom.css?body=1" for 127.0.0.1 at 2014-10-23 13:45:07 +0530
+Served asset /smoothness/jquery-ui-1.10.3.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/confs.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:07 +0530
+Served asset /confs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/delete_object.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:07 +0530
+Served asset /delete_object.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/digital_editions.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:07 +0530
+Served asset /digital_editions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/entities.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:07 +0530
+Served asset /entities.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:08 +0530
+Served asset /event_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/expression_types.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:08 +0530
+Served asset /expression_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/expressions.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:08 +0530
+Served asset /expressions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/holding_institutions.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:08 +0530
+Served asset /holding_institutions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/item_events.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:08 +0530
+Served asset /item_events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:08 +0530
+Served asset /items.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.9.1.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:08 +0530
+Served asset /jquery-1.9.1.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-ui-1.10.3.custom.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:09 +0530
+Served asset /jquery-ui-1.10.3.custom.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.mask.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:09 +0530
+Served asset /jquery.mask.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/local_markup_mappings.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:09 +0530
+Served asset /local_markup_mappings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:09 +0530
+Served asset /locations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/manifestation_events.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:09 +0530
+Served asset /manifestation_events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/manifestation_types.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:09 +0530
+Served asset /manifestation_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/manifestations.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:09 +0530
+Served asset /manifestations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/manifestations_events.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:10 +0530
+Served asset /manifestations_events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/nav_categories.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:10 +0530
+Served asset /nav_categories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:10 +0530
+Served asset /pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:10 +0530
+Served asset /roles.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/surrogates.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:10 +0530
+Served asset /surrogates.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/system_event_types.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:10 +0530
+Served asset /system_event_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transcriptions.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:11 +0530
+Served asset /transcriptions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user_roles.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:11 +0530
+Served asset /user_roles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/view_port.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:11 +0530
+Served asset /view_port.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/works.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:11 +0530
+Served asset /works.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zoom.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:11 +0530
+Served asset /zoom.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-23 13:45:11 +0530
+Served asset /application.js - 304 Not Modified (22ms)
+
+
+Started GET "/assets/3.gif" for 127.0.0.1 at 2014-10-23 13:45:12 +0530
+Served asset /3.gif - 304 Not Modified (0ms)
+
+
+Started GET "/assets/donne-logo.gif" for 127.0.0.1 at 2014-10-23 13:45:12 +0530
+Served asset /donne-logo.gif - 304 Not Modified (0ms)

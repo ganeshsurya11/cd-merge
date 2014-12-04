@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  expression_type_type: MyString
+  expression_type_description: MyString
+  expression_type_note: MyText
+
+two:
+  expression_type_type: MyString
+  expression_type_description: MyString
+  expression_type_note: MyText

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  manifestation_type_type: MyString
+  manifestation_type_description: MyString
+  manifestation_type_notes: MyText
+
+two:
+  manifestation_type_type: MyString
+  manifestation_type_description: MyString
+  manifestation_type_notes: MyText

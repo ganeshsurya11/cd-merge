@@ -1,0 +1,861 @@
+/*
+ * Simple Grid System Tutorial
+ * by Jacek Ciolek
+ * 
+ * For more information go to
+ * http://webnicer.com
+*/
+body {background: #ffffff; min-height: 1430px;}
+p {font-size:1.2em;line-height:1.5em;}
+
+/* PAGE CONTAINER */
+.page {
+	margin-top: 0 auto; 
+	background: #fff;
+	height: 100%;
+	}
+.gu6 {
+	margin: 0 auto;
+	}
+ .gu1a {
+	background-image:url('/assets/arch-960.jpg');
+	margin-top: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: auto; 
+	min-height: 1430px;
+ }
+
+/* PAGE HEADER */
+.pg-header {z-index: 2;}
+.pg-header {margin-bottom:20px;}
+.pg-header .content {
+	width: 100%;
+	}
+.leftcell {
+	width: 90%;
+	text-align: left;
+	padding-left: 35px;
+	}
+
+.rightcell {
+	width: 10%;
+	text-align: right;
+	padding-right: 35px;
+	padding-top: 20px;
+	}
+
+.pg-header .content_logo {
+	width: 20%;
+	text-align: right;
+	}
+	
+.pg-header h1 {
+	font-weight: 700;
+	font-size: 3.5em;
+	letter-spacing: 1pt;
+	font-variant: small-caps;
+	text-decoration: none;
+	padding-top: 0.4em;
+	font-family: Georgia,Garamond,"Hoefler Text",serif;
+	color: rgb(255, 0, 0);
+}
+
+.title_bar {
+	font-weight: 700;
+	font-size: 3.5em;
+	letter-spacing: 1pt;
+	font-variant: small-caps;
+	text-decoration: none;
+	padding-top: 35px;
+	font-family: Georgia,Garamond,"Hoefler Text",serif;
+	color: rgb(255, 0, 0);
+}
+
+.title_bar a {
+     text-decoration: none;
+}
+.reduce {
+    font-size: 0.9em;
+}
+
+.em {
+	font-style:italic;
+}
+
+
+/*Dropdown menu with levels adapted from htmldog.com at http://htmldog.com/articles/suckerfish/dropdowns/ and alistapart.com*/
+#nav, #nav ul { /* all lists */
+	padding: 5px 0 5px 0;
+	margin: 0 10px 0 0;
+	list-style: none;
+	line-height: 1;
+	border-top: thin dotted #CCCCCC; 
+}
+
+#nav a {
+	display: block;
+	width: 12em;
+}
+
+a.toplist {
+	padding-left: 3em;
+}
+
+a.toplist1 {
+	padding-left: 2.3em;
+}
+
+a.toplist2 {
+	padding-left: 1.1em;
+}
+
+a.dropdown {
+	font-weight:normal;
+	padding-left: .6em;
+}
+
+#nav li { /* all list items */
+	float: left;
+	width: 12em; /* width needed or else Opera goes nuts */
+	border-bottom: thin dotted #CCCCCC;
+	padding: 0em 0em 5px 0em;
+}
+
+#nav li ul { /* second-level lists */
+	position: absolute;
+	color: #000000;
+	background: #ffffff;
+	border: 1px solid #ccc;
+	font-size: 12px;
+	width: 12em;
+	left: -999em; /* using left instead of display to hide menus because display: none isn't read by screen readers */
+}
+
+#nav li:hover ul, #nav li.sfhover ul { /* lists nested under hovered list items */
+	left: auto;
+}
+
+#menubar-homepage {
+	clear: both;
+	z-index: 2;
+	width: 100%;
+	color: #000000;
+	margin-bottom: 1.6em;
+	margin-top: 5px;
+	/* background-color: #transparent;  */
+	font-family: Tahoma, Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	font-weight : bold;
+	padding-right: 5px;
+}
+
+
+.page-wrap {
+	margin-top: 25px;
+}
+
+.breadcrumb { 
+	list-style: none; 
+	overflow: hidden; 
+	font: 10px Helvetica, Arial, Sans-Serif;
+}
+.breadcrumb li { 
+	float: left; 
+}
+.breadcrumb li a {
+	color: white;
+	text-decoration: none; 
+	padding: 4px 0 4px 40px;
+	background: #A0BFFD;                 /* fallback color */
+	background: hsla(220, 96%, 70%, 1.0);
+	position: relative; 
+	display: block;
+	float: left;
+}
+.breadcrumb li a:after { 
+	content: " "; 
+	display: block; 
+	width: 0; 
+	height: 0;
+	border-top: 50px solid transparent;           /* Go big on the size, and let overflow hide */
+	border-bottom: 50px solid transparent;
+	border-left: 30px solid hsla(220, 96%, 70%, 1.0);
+	position: absolute;
+	top: 50%;
+	margin-top: -50px; 
+	left: 100%;
+	z-index: 2; 
+}	
+.breadcrumb li a:before { 
+	content: " "; 
+	display: block; 
+	width: 0; 
+	height: 0;
+	border-top: 50px solid transparent;           /* Go big on the size, and let overflow hide */
+	border-bottom: 50px solid transparent;
+	border-left: 30px solid white;
+	position: absolute;
+	top: 50%;
+	margin-top: -50px; 
+	margin-left: 1px;
+	left: 100%;
+	z-index: 1; 
+}	
+.breadcrumb li:first-child a {
+	padding-left: 10px;
+}
+.breadcrumb li:nth-child(2) a       { background:        hsla(220, 96%, 75%, 1.0); }
+.breadcrumb li:nth-child(2) a:after { border-left-color: hsla(220, 96%, 75%, 1.0); }
+.breadcrumb li:nth-child(3) a       { background:        hsla(220, 96%, 80%, 1.0); }
+.breadcrumb li:nth-child(3) a:after { border-left-color: hsla(220, 96%, 80%, 1.0); }
+.breadcrumb li:nth-child(4) a       { background:        hsla(220, 96%, 85%, 1.0); }
+.breadcrumb li:nth-child(4) a:after { border-left-color: hsla(220, 96%, 85%, 1.0); }
+.breadcrumb li:nth-child(5) a       { background:        hsla(220, 96%, 90%, 1.0); }
+.breadcrumb li:nth-child(5) a:after { border-left-color: hsla(220, 96%, 90%, 1.0);; }
+.breadcrumb li:last-child a {
+	background: white !important;
+	color: black;
+	pointer-events: none;
+	cursor: default;
+}
+.breadcrumb li:last-child a:after { border: 0; }
+.breadcrumb li a:hover { background: hsla(220, 96%, 60%, 1.0); }
+.breadcrumb li a:hover:after { border-left-color: hsla(220, 96%, 60%, 1.0) !important; }
+
+
+
+
+/* PAGE CONTENTS */
+.pg-contents {z-index:1;}
+.pg-contents .content {
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-bottom: 0px;
+	padding-left: 35px;
+	border: none;
+	margin: 0px, 0px, 0px, 0px;
+	text-align: left;
+	width: 100%;
+}
+
+.pg-contents .main_content_block {
+     padding-top: 10px;
+     padding-right: 10px;
+     padding-bottom: 0px;
+     padding-left: 40px;
+     border: none;
+     margin: 0px, 0px, 0px, 0px;
+     text-align: left;
+     width: 920px;
+}
+	
+.pg-contents .content_left_justify {
+	padding-top: 10px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	border: none;
+	margin: 0px, 0px, 0px, 0px;
+	text-align: left;
+	width: 550px;
+	font-size: 12px;
+}
+	
+.pg-contents .content_align_right {
+	padding-top: 10px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 25px;
+	border: none;
+	margin: 0px, 0px, 0px, 0px;
+	text-align: right;
+	width: 100%;
+	font-size: 12px;
+	}
+.pg-contents .content ul.nav-tree {padding:0 0 0 1.5em;}
+.pg-contents .content ul.nav-tree li {font-size:1.2em; line-height:1.5em; text-align:left;}
+
+.pg-contents h1 {
+	font-size: 14px;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+/* PAGE FOOTER */
+.pg-footer .content {
+	margin-top: 5px;
+	}
+.pg-footer .content p {color:#fff;}
+.pg-footer .content_right_align {
+	margin-top: 0px;
+	padding-top: 0px;
+	text-align: right;
+	padding-bottom: 10px;
+	color: #666;
+	}
+.pg-footer .content_right_align a {
+	margin-top: 0px;
+	padding-top: 0px;
+	text-align: right;
+	padding-bottom: 10px;
+	color: #666;
+	}
+
+#inline-list {
+ 	border-top: 1px dotted #000;
+ 	border-bottom: 1px dotted #000;
+ 	margin: 2em;
+ 	padding-top: 15px;
+ 	padding-bottom: 15px;
+ 	font-family: Verdana, sans-serif;
+ 	font-size: 10px;
+ 	text-decoration: none;
+ 	color:#666;
+ }
+ #inline-list ul, #inline-list li {
+ 	display: inline;
+ 	margin: 0;
+ 	padding: 0;
+ 	color: #339;
+ 	}
+ #inline-list ul li {
+ 	margin-left: 0;
+ 	padding: 3px 5px;
+ 	border-left: 1px solid #666;
+ 	list-style: none;
+ 	display: inline;
+ 	color:#666;
+ 	}
+ #inline-list ul li a {
+ 	text-decoration:none;
+ 	color:#666;
+ 	} 	
+ 	
+ #inline-list li.first {
+ 	margin-left: 0;
+ 	border-left: none;
+ 	list-style: none;
+ 	display: inline;
+ 	}
+ 	
+ 	
+/* login pages */
+
+.create_user_table {
+	border: 0px;
+	padding: 5px;
+}
+
+.login_left_field {
+	padding-top: 10px;
+	padding-right: 15px;
+	padding-bottom: 10px;
+	padding-left: 0px;
+	font-size: 10px;
+	font-weight: bold;
+}
+
+.login_right_field {
+	padding-top: 10px;
+	padding-right: 0px;
+	padding-bottom: 10px;
+	padding-left: 0px;
+}
+
+.new_user_action_button {
+	padding-top: 10px;
+}
+
+
+/* GENERAL */
+
+.error_messages {
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 10px;
+	padding-left: 0px;
+}
+
+.error_messages h2 {
+	font-size: 14px;
+	padding-bottom: 5px;
+	color: red;
+}
+
+
+#notice {
+	font-size: 14px;
+	color: red;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 15px;
+	padding-left: 0px;
+}
+
+.h5style {
+     font-family: Book Antiqua;
+     font-size: 25px;
+     color: red;
+}
+
+.h4style {
+     font-family: Book Antiqua;
+     font-style: italic;
+     font-size: 15px;
+     color: red;
+}
+
+.larger_font_class {
+     margin-top: 8px;
+     font-size: 15px;
+}
+
+.note {
+     font-size: 12px;
+     color: darkred;
+}
+
+.splash_ul {
+     margin-top: 10px;
+     margin-left: 20px;
+     font-size: 15px;
+}
+
+.main_nav_cat_header {
+     background: grey;
+     color: #000000;
+     font-size: 16px;
+     margin-bottom: 10px;
+     padding: 10px;
+
+}
+
+.main_nav_cat_block {
+     width: 200px;
+     padding-top: 0px;
+     padding-right: 0px;
+     padding-bottom: 0px;
+     padding-left: 0px;
+     border: none;
+     margin: 0px, 0px, 0px, 0px;
+     text-align: left;
+
+}
+
+.main_nav_edition_link {
+     font-size: 14px;
+}
+
+.edition_contents {
+     width: 100%;
+     padding-top: 0px;
+     padding-right: 0px;
+     padding-bottom: 0px;
+     padding-left: 0px;
+     border: none;
+     margin: 0px, 0px, 0px, 0px;
+     text-align: left;
+
+}
+
+.edition_nav_links {
+     width: 100%;
+     text-align: center;
+     margin-top: 20px;
+}
+
+/* bottom pipe list */
+
+#footernavcontainer {
+     margin-top: 15px;
+     font-size: 12px;
+     font-color: black;
+}
+
+/*Fat Erik's Pipelist*/
+#footernavlist
+{
+     list-style: none;
+     padding: 0;
+     margin: 0;
+     font-color: black;
+}
+
+#footernavlist li
+{
+     display: inline;
+     padding: 0;
+     margin: 0;
+     font-color: black;
+}
+
+#footernavlist li a
+{
+     color: black;
+}
+
+#footernavlist li:before { content: "| "; }
+#footernavlist li:first-child:before { content: ""; }
+
+/*IE workaround*/
+/*All IE browsers*/
+* html #footernavlist li
+{
+     border-left: 1px solid black;
+     padding: 0 0.4em 0 0.4em;
+     margin: 0 0.4em 0 -0.4em;
+}
+
+/*Win IE browsers - hide from Mac IE\*/
+* html #footernavlist { height: 1%; }
+
+* html #footernavlist li
+{
+     display: block;
+     float: left;
+}
+
+/*End hide*/
+/*Mac IE 5*/
+* html #footernavlist li:first-child { border-left: 0; }
+
+.navigation-menu{
+     position:relative;
+     top:0px;
+     height:41px;
+     left:0px;
+     padding-left:0px;
+     text-align: center;
+     width: 220px;
+}
+
+.control-top-item{
+     position: relative;
+     float:left;
+     margin-left:10px;
+     top: 3px;
+     border: 0px solid #eaeaea;
+     padding: 0;
+     color: #000000;
+     text-decoration: none;
+     font-family:verdana;
+     font-size:11;
+     font-weight:bold;
+     width:25px;
+     text-align:center;
+     height:29px;
+     background-color:#C0C0C0;
+}
+
+.control-top-item-empty{
+     position: relative;
+     float:left;
+     margin-left:10px;
+     top: 3px;
+     border: 0px;
+     padding: 0;
+     color: #000000;
+     text-decoration: none;
+     font-family:verdana;
+     width:25px;
+     height:29px;
+}
+
+.control-top-pageof{
+     position: absolute;
+     float:left;
+     left:860px;
+     top: 0px;
+     border: 3px solid #eaeaea;
+     padding: 3 3 3 3;
+     color: #000000;
+     text-decoration: none;
+     font-family:verdana;
+     font-size:11;
+     width:110px;
+     text-align:center;
+     height:20px;
+     background-color:white;
+}
+
+.gotopage-frame{
+     position: relative;
+     float:left;
+     margin-left:10px;
+     top: 3px;
+     border: 2px solid #eaeaea;
+     padding: 1 1 1 1;
+     color: #E6E6FA;
+     text-decoration: none;
+     font-family:verdana;
+     font-size:10;
+     width:130px;
+     text-align:left;
+     height:23px;
+     background-color:#1E6FC6;
+}
+
+.gotopage-button{
+     position: relative;
+     float:left;
+     margin-left:5px;
+     margin-top:0px;
+     border: 0;
+     color: #E6E6FA;
+     text-decoration: none;
+     font-family:verdana;
+     font-weight:bold;
+     font-size:10;
+     width:35px;
+     text-align:center;
+     height:15px;
+}
+
+.gotopage-text{
+     position: relative;
+     float:left;
+     top: 2px;
+     margin-left:5px;
+     border: 0;
+     color: #1E6FC6;
+     text-decoration: none;
+     font-family:verdana;
+     font-size:11;
+     font-weight:bold;
+     width:35px;
+     text-align:center;
+     height:20px;
+}
+
+.control-top-page{
+     position: relative;
+     margin-left:10px;
+     float:left;
+     top: 3px;
+     border: 3px solid #eaeaea;
+     padding: 3 3 3 3;
+     color: #E6E6FA;
+     text-decoration: none;
+     font-family:verdana;
+     font-size:11;
+     font-weight:bold;
+     width:150px;
+     text-align:center;
+     background-color:#0066CC;
+}
+
+.control-top-page-empty{
+     border: 3px solid #eaeaea;
+     color: #E6E6FA;
+     background-color:#0066CC;
+     position: relative;
+     margin-left:10px;
+     font-family:verdana;
+     font-size:11;
+     font-weight:bold;
+     float:left;
+     top: 3px;
+     padding: 3 3 3 3;
+     text-decoration: none;
+     width:138px;
+     height:15px;
+     text-align:center;
+}
+
+
+.split_columns_ed_left_cell {
+     border: 0px;
+     text-align: left;
+}
+
+.split_columns_ed_left_center_cell {
+     border: 0px;
+     text-align: center;
+}
+
+
+.split_columns_ed_right_cell {
+     border: 0px;
+     text-align: right;
+     padding-right: 15px;
+}
+
+
+.edition_transcription_file_table_td {
+     font-size:  14px;
+     padding: 5px;
+     border: 1px solid;
+     vertical-align: top;
+     height: 687px;
+     background-image: url('/assets/back.gif');
+}
+
+.edition_split_columns_left_cell {
+     border: 0px;
+     text-align: left;
+     height: 40px;
+}
+
+
+.simple_list {
+     list-style-type: none;
+     margin: 0;
+     padding: 0;
+     width: 880px;
+}
+
+.simple_list_li {
+     font: 200 17px/1.5 Helvetica, Verdana, sans-serif;
+     border-bottom: 1px solid #ccc;
+}
+
+.simple_list_li:last-child {
+     border: none;
+}
+
+.simple_list_li a {
+     text-decoration: none;
+     color: #000;
+     display: block;
+
+     -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+     -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+     -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+     -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+     transition: font-size 0.3s ease, background-color 0.3s ease;
+}
+
+.simple_list_li a:hover {
+     font-size: 17px;
+     background: #f6f6f6;
+     font-weight: bold;
+}
+
+.siglum {
+     font-style: italic;
+}
+
+.sort_nav_link {
+     margin-top: 20px;
+     margin-bottom: 20px;
+}
+
+.concordance_table {
+     width: 940px;
+     margin-top: 20px;
+     margin-bottom: 20px;
+}
+
+.concordance_tr {
+
+}
+
+.concordance_list {
+
+     font: 200 17px/1.5 Helvetica, Verdana, sans-serif;
+}
+
+.concordance_li {
+
+}
+
+.concordance_li a {
+     text-decoration: none;
+     color: #000;
+     display: block;
+
+     -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+     -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+     -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+     -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+     transition: font-size 0.3s ease, background-color 0.3s ease;
+}
+
+.concordance_li a:hover {
+     font-size: 17px;
+     background: #f6f6f6;
+     font-weight: bold;
+}
+
+.narrow-col-first {
+     vertical-align: top;
+}
+
+.narrow-col-other {
+     vertical-align: top;
+}
+
+.concordance_lines_table {
+     font: 200 17px/1.5 Helvetica, Verdana, sans-serif;
+     margin-top: 20px;
+     margin-bottom: 20px;
+}
+
+.concordance_line_siglum {
+     text-align: right;
+}
+
+.concordance_line_code {
+    padding-left: 20px;
+}
+
+.concordance_line_line {
+     padding-left: 20px;
+}
+
+.concordance_bold_span {
+     font-size: 110%;
+     font-weight: bold;
+}
+
+.viewport_bold_span {
+
+}
+
+.viewport_transcription_title {
+   padding-left: 10px;
+   width: 445px;
+   vertical-align: top;
+   text-align: left;
+}
+
+.viewport_transcription_title_div {
+     margin-bottom: 5px;
+}
+
+.viewport_transcription_file_table {
+     border: 1px solid;
+     margin-right: 15px;
+     width: 415px;
+}
+
+.variant_link {
+     color: red;
+}
+
+.variant_link a {
+     text-decoration: none;
+}
+
+.ed_title_link {
+     width: 100%;
+     font-color: grey;
+     font-size: 15px;
+}
+
+.ed_title_link a {
+   text-decoration: none;
+}
+
+#lista {
+     overflow:hidden;
+     width: 677px;
+     height: 480px;
+     border: 1px solid #666666;
+}
+
+#theimage {
+     cursor: move;
+}
+

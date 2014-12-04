@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  agent_last_name: MyString
+  agent_first_name: MyString
+  agent_middle_name: MyString
+  agent_name_prefix: MyString
+  agent_name_suffix: MyString
+  agent_birth_year: 1
+  agent_death_year: 1
+  agent_viaf_id: 1
+  agent_viaf_link: MyString
+  agent_viaf_type: MyString
+  agent_notes: MyText
+
+two:
+  agent_last_name: MyString
+  agent_first_name: MyString
+  agent_middle_name: MyString
+  agent_name_prefix: MyString
+  agent_name_suffix: MyString
+  agent_birth_year: 1
+  agent_death_year: 1
+  agent_viaf_id: 1
+  agent_viaf_link: MyString
+  agent_viaf_type: MyString
+  agent_notes: MyText

@@ -1,0 +1,85 @@
+<%=begin
+     ###############################################################################
+     #    Copyright (c) 2014, Carl Stahmer - www.carlstahmer.com                   #
+     #                                                                             #
+     #    This file is part of the Collex Edition Builder, a platform              #
+     #    publishing digital editions with a complete, FRBRized system of          #
+     #    metadata management and linked-data functionality.                       #
+     #                                                                             #
+     #    The Collex Edition Builder is free software: you can redistribute it     #
+     #    and/or modify it under the terms of the GNU General Public License       #
+     #    as published by the Free Software Foundation, either version 3 of        #
+     #    the License, or (at your option) any later version.                      #
+     #                                                                             #
+     #    The Collex Edition Builder is distributed in the hope that it will       #
+     #    be useful, but WITHOUT ANY WARRANTY; without even the implied warranty   #
+     #    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         #
+     #    GNU General Public License for more details.                             #
+     #                                                                             #
+     #    You should have received a copy of the GNU General Public License        #
+     #    along with The Collex Edition Builder distribution.  If not,             #
+     #    see <http://www.gnu.org/licenses/>.                                      #
+     #                                                                             #
+     #    Development of this software was made possible through funding from      #
+     #    the National Endowment for the Humanities as well as the Institute       #
+     #    for Digital Humanities, Media, and Culture at Texas A&M University.      #
+     ###############################################################################
+   end%>
+<% content_for :edition_title_bar do %>
+    <%= raw(@title_nav_links) %>
+<% end %>
+
+<table class="form_column_table_three">
+  <tr class="form_column_table_tr">
+    <td class="form_column_table_left_cell_two">
+      <table class="split_columns">
+        <tr class="split_columns_tr">
+          <td width="100%" height="40" align="center">
+
+
+            <div class="navigation-menu">
+              <div class="control-top-item" <% if !@before_page %> style="opacity:0.4;" <% end %> title="previous page">
+                <% if @before_page %><a href="/viewport/<%=@before_page%>"><% end %><%= image_tag 'prev.gif' %><% if @before_page %></a><% end %>
+              </div>
+              <div class="gotopage-frame">
+                <div class="gotopage-button">go to page:
+                </div>
+                <input type="text" value="<%= @str_page_value %>" class="gotopage-text" id="gotopage" name="gotopage" size="4" title="Go to page" parent="<%= @diged %>" edfirst="<%= @first_page %>" edlast="<%= @last_page %>">
+                <div class="gotopage-button"> of <%= @last_page %></div>
+              </div>
+              <div class="control-top-item" <% if !@after_page  %> style="opacity:0.4;" <% end %> title="next page">
+                <% if @after_page  %><a href="/viewport/<%=@after_page%>"><% end %><%= image_tag 'next.gif' %><% if @after_page  %></a><% end %>
+              </div>
+            </div>
+
+
+          </td>
+
+        </tr>
+      </table>
+    </td>
+    <td class="viewport_transcription_title">
+        <% @transcriptions.each do |tr| %>
+            <div class="viewport_transcription_title_div"><h1><%= tr.expression.expression_name %></h1></div>
+        <% end %>
+    </td>
+  </tr>
+  <tr class="form_column_table_tr">
+    <td class="form_column_table_left_cell_two">
+      <table class="viewport_transcription_file_table">
+        <tr class="transcription_file_table_tr">
+          <td class="edition_transcription_file_table_td">
+            <%= raw(@formatted_page) %>
+          </td>
+        </tr>
+      </table>
+
+    </td>
+    <td class="form_column_table_right_cell_two">
+      <a href="javascript:openDonne('/zoom/<%= @page.id %>')"><%= image_tag @page.page_image_url(:medium_thumb).to_s, :width => "475" %></a>
+    </td>
+  </tr>
+</table>
+<div class="edition_nav_links">
+  <%= raw(@edition_nav_links) %>
+</div>

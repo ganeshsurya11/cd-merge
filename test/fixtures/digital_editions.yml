@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  digital_edition_local_title: MyString
+  digital_edition_description: MyString
+  digital_edition_active: false
+  digital_edition_notes: MyText
+
+two:
+  digital_edition_local_title: MyString
+  digital_edition_description: MyString
+  digital_edition_active: false
+  digital_edition_notes: MyText

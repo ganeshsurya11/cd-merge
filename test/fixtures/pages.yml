@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  surrogate_id: 1
+  page_page: 1
+  page_image: MyString
+  page_notes: MyText
+
+two:
+  surrogate_id: 1
+  page_page: 1
+  page_image: MyString
+  page_notes: MyText

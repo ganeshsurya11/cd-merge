@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  work_name: MyString
+  work_siglum: MyString
+  work_viaf_id: 1
+  work_viaf_link: MyString
+  work_notes: MyText
+
+two:
+  work_name: MyString
+  work_siglum: MyString
+  work_viaf_id: 1
+  work_viaf_link: MyString
+  work_notes: MyText

@@ -1,0 +1,99 @@
+<%=begin
+     ###############################################################################
+     #    Copyright (c) 2014, Carl Stahmer - www.carlstahmer.com                   #
+     #                                                                             #
+     #    This file is part of the Collex Edition Builder, a platform              #
+     #    publishing digital editions with a complete, FRBRized system of          #
+     #    metadata management and linked-data functionality.                       #
+     #                                                                             #
+     #    The Collex Edition Builder is free software: you can redistribute it     #
+     #    and/or modify it under the terms of the GNU General Public License       #
+     #    as published by the Free Software Foundation, either version 3 of        #
+     #    the License, or (at your option) any later version.                      #
+     #                                                                             #
+     #    The Collex Edition Builder is distributed in the hope that it will       #
+     #    be useful, but WITHOUT ANY WARRANTY; without even the implied warranty   #
+     #    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         #
+     #    GNU General Public License for more details.                             #
+     #                                                                             #
+     #    You should have received a copy of the GNU General Public License        #
+     #    along with The Collex Edition Builder distribution.  If not,             #
+     #    see <http://www.gnu.org/licenses/>.                                      #
+     #                                                                             #
+     #    Development of this software was made possible through funding from      #
+     #    the National Endowment for the Humanities as well as the Institute       #
+     #    for Digital Humanities, Media, and Culture at Texas A&M University.      #
+     ###############################################################################
+   end%>
+<% content_for :head_breadcrumb do %>
+  <li><a href="/admin">Admin Interface</a></li>
+  <li><a href="/digital_editions/<%= @parent %>/edit">Digital Edition</a></li>
+  <li><a href="#">Pages</a></li>
+<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<div class="pagination">
+	<%= paginate @pages %>
+</div>
+<table class="page_thumbs_table">
+<% int_num = 0 %>
+
+<% @pages.each do |pg| %>
+
+		<%if int_num == 0 %>
+			<tr class="page_thumbs_table_tr">
+		<% end %>
+			<td class="page_thumbs_table_td">
+				<div class="page_image_div">
+					<a href="/pages/<%= pg.id %>/edit"><%= image_tag pg.page_image_url(:thumb).to_s %></a>
+				</div>
+				<div class="page_number">Page: <%= pg.page_page %></div>
+                <% logger.debug "FormPageID: "+pg.id.to_s %>
+				<div class="page_siglum"><%= get_expression_siglum(pg.id) %></div>
+				<div class="page_title"><%= get_expression_name(pg.id) %></div>
+			</td>
+		<% if int_num == 4 %>
+			</tr>
+			<% int_num = 0 %>
+		<% else %>
+			<% int_num = int_num + 1 %>
+		<% end %>  
+
+<% end %>
+<% if int_num > 0 %>
+	<% while int_num < 5 do %>
+		<td class="page_thumbs_table_td">&nbsp;</td>		
+		<% int_num = int_num + 1 %>
+	<% end %>
+	</tr>
+<% end %>
+</table>
+
+<div class="content_width">
+<table class="form_column_table_three">
+<tr class="form_column_table_tr">
+<td class="form_column_table_left_cell_two">
+<span class="blue_link_no_underline"><a href="/pages/<%= @parent %>/new">[add new page]</a></span>
+</td>
+<td class="form_column_table_right_cell_two_right">
+<%= form_tag({controller: "pages", action: "page"}, method: "get", class: "page_select_form") do %>
+<%= label_tag(:page_page, "Page: ") %>
+<%= text_field_tag(:p, "", :size => "3") %>
+<%= hidden_field_tag(:parent, @parent) %>
+<%= submit_tag("Go") %>
+<% end %>
+</td>
+</tr>
+</table>
+</div>
+
+
+<% content_for :foot_logout do %>
+	<div class="content_right_align">
+	    <%= link_to "Logout", '/sessions/destroy' %>
+	</div>
+<% end %>
+
+
+

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  holding_institution_name: MyString
+  holding_institution_siglum: MyString
+  holding_institution_notes: MyText
+
+two:
+  holding_institution_name: MyString
+  holding_institution_siglum: MyString
+  holding_institution_notes: MyText

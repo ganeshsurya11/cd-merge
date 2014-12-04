@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  manifestation_id: 1
+  event_type_id: 1
+  agent_id: 1
+  role_id: 1
+  location_id: 1
+  manifestation_event_start_date: 2013-05-18
+  manifestation_event_end_date: 2013-05-18
+  manifestation_event_notes: MyText
+
+two:
+  manifestation_id: 1
+  event_type_id: 1
+  agent_id: 1
+  role_id: 1
+  location_id: 1
+  manifestation_event_start_date: 2013-05-18
+  manifestation_event_end_date: 2013-05-18
+  manifestation_event_notes: MyText

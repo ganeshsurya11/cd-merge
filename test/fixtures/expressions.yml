@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  expression_type_id: 1
+  expression_name: MyString
+  expression_siglum: MyString
+  expression_description: MyString
+  expression_notes: MyText
+
+two:
+  expression_type_id: 1
+  expression_name: MyString
+  expression_siglum: MyString
+  expression_description: MyString
+  expression_notes: MyText

@@ -1,0 +1,85 @@
+<%=begin
+     ###############################################################################
+     #    Copyright (c) 2014, Carl Stahmer - www.carlstahmer.com                   #
+     #                                                                             #
+     #    This file is part of the Collex Edition Builder, a platform              #
+     #    publishing digital editions with a complete, FRBRized system of          #
+     #    metadata management and linked-data functionality.                       #
+     #                                                                             #
+     #    The Collex Edition Builder is free software: you can redistribute it     #
+     #    and/or modify it under the terms of the GNU General Public License       #
+     #    as published by the Free Software Foundation, either version 3 of        #
+     #    the License, or (at your option) any later version.                      #
+     #                                                                             #
+     #    The Collex Edition Builder is distributed in the hope that it will       #
+     #    be useful, but WITHOUT ANY WARRANTY; without even the implied warranty   #
+     #    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         #
+     #    GNU General Public License for more details.                             #
+     #                                                                             #
+     #    You should have received a copy of the GNU General Public License        #
+     #    along with The Collex Edition Builder distribution.  If not,             #
+     #    see <http://www.gnu.org/licenses/>.                                      #
+     #                                                                             #
+     #    Development of this software was made possible through funding from      #
+     #    the National Endowment for the Humanities as well as the Institute       #
+     #    for Digital Humanities, Media, and Culture at Texas A&M University.      #
+     ###############################################################################
+   end%>
+<% content_for :head_breadcrumb do %>
+    <li><a href="/admin">Admin Interface</a></li>
+    <li><a href="#">Digital Edition</a></li>
+<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Digital edition local title:</b>
+  <%= @digital_edition.digital_edition_local_title %>
+</p>
+
+<p>
+  <b>Digital edition description:</b>
+  <%= @desc_snippet %>...
+</p>
+
+<p>
+  <b>Digital edition active:</b>
+  <%= @digital_edition.digital_edition_active %>
+</p>
+
+<p>
+  <b>Surrogate of (Manifestation):</b>
+  <%= @digital_edition.manifestation.manifestation_name %>
+</p>
+
+<p>
+  <b>Primary Witness:</b>
+  <% if @digital_edition.manifestation.manifestation_name %>
+    <%= @digital_edition.manifestation.manifestation_name %>
+  <% end %>
+</p>
+
+<p>
+  <b>Navigation Category:</b>
+  <%= @digital_edition.nav_category.nav_category_name %>
+</p>
+
+<p>
+  <b>Navigation Order:</b>
+  <%= @digital_edition.digital_edition_order %>
+</p>
+
+<p>
+  <b>Digital edition notes:</b>
+  <%= @digital_edition.digital_edition_notes %>
+</p>
+
+<p>&nbsp;</p>
+
+<%= link_to 'Edit', edit_digital_edition_path(@digital_edition) %>
+
+<% content_for :foot_logout do %>
+    <div class="content_right_align">
+      <%= link_to "Logout", '/sessions/destroy' %>
+    </div>
+<% end %>

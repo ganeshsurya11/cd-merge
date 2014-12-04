@@ -1,0 +1,64 @@
+<%=begin
+     ###############################################################################
+     #    Copyright (c) 2014, Carl Stahmer - www.carlstahmer.com                   #
+     #                                                                             #
+     #    This file is part of the Collex Edition Builder, a platform              #
+     #    publishing digital editions with a complete, FRBRized system of          #
+     #    metadata management and linked-data functionality.                       #
+     #                                                                             #
+     #    The Collex Edition Builder is free software: you can redistribute it     #
+     #    and/or modify it under the terms of the GNU General Public License       #
+     #    as published by the Free Software Foundation, either version 3 of        #
+     #    the License, or (at your option) any later version.                      #
+     #                                                                             #
+     #    The Collex Edition Builder is distributed in the hope that it will       #
+     #    be useful, but WITHOUT ANY WARRANTY; without even the implied warranty   #
+     #    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         #
+     #    GNU General Public License for more details.                             #
+     #                                                                             #
+     #    You should have received a copy of the GNU General Public License        #
+     #    along with The Collex Edition Builder distribution.  If not,             #
+     #    see <http://www.gnu.org/licenses/>.                                      #
+     #                                                                             #
+     #    Development of this software was made possible through funding from      #
+     #    the National Endowment for the Humanities as well as the Institute       #
+     #    for Digital Humanities, Media, and Culture at Texas A&M University.      #
+     ###############################################################################
+   end%>
+<% content_for :head_breadcrumb do %>
+  <li><a href="/admin">Admin Interface</a></li>
+  <% if URI(request.referer).path == '/expressions' %>
+  	<li><a href="/expressions">Expressions</a></li>
+  <% end %>
+  <li><a href="/expressions">New Expression</a></li>
+<% end %>
+<p>
+    <span class="minor_header">
+      expression: the intellectual or artistic realization of a work in the form of alpha-numeric, musical, or choreographic notation, sound, image, object, movement, etc., or any combination of such forms...The boundaries of the entity expression are defined, however, so as to exclude aspects of physical form, such as typeface and page layout, that are not integral to the intellectual or artistic realization of the work as such.*
+    </span>
+</p>
+
+<p>&nbsp;</p>
+
+<%= render 'form' %>
+
+<p>&nbsp;</p>
+<p>
+    <span class="minor_header">
+      * Inasmuch as the form of expression is an inherent characteristic of the expression, any change in form (e.g., from alpha-numeric notation to spoken word) results in a new expression. Similarly, changes in the intellectual conventions or instruments that are employed to express a work (e.g., translation from one language to another) result in the production of a new expression. Strictly speaking, any change in intellectual or artistic content constitutes a change in expression. Thus, if a text is revised or modified, the resulting expression is considered to be a new expression, no matter how minor the modification may be.
+    </span>
+</p>
+
+<p>&nbsp;</p>
+
+<p>
+    <span class="minor_header">
+      An expression is the realization of one and only one work. An expression may be embodied in one or more than one manifestation.
+    </span>
+</p>
+
+<% content_for :foot_logout do %>
+    <div class="content_right_align">
+      <%= link_to "Logout", '/sessions/destroy' %>
+    </div>
+<% end %>

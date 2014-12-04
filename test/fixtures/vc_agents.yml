@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  vc_id: 1
+  vc_agent_last_name: MyString
+  vc_agent_first_name: MyString
+  vc_agent_middle: MyString
+  vc_agent_viaf_id: 1
+  vc_agent_viaf_link: MyString
+  vc_agent_viaf_type: MyString
+  vc_agent_notes: MyText
+  vc_user_id: MyString
+  vc_user_name: MyString
+  vc_user_action: MyString
+  vc_date_time_stamp: 2013-05-16 01:14:32
+
+two:
+  vc_id: 1
+  vc_agent_last_name: MyString
+  vc_agent_first_name: MyString
+  vc_agent_middle: MyString
+  vc_agent_viaf_id: 1
+  vc_agent_viaf_link: MyString
+  vc_agent_viaf_type: MyString
+  vc_agent_notes: MyText
+  vc_user_id: MyString
+  vc_user_name: MyString
+  vc_user_action: MyString
+  vc_date_time_stamp: 2013-05-16 01:14:32

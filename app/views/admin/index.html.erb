@@ -1,0 +1,132 @@
+<%=begin
+     ###############################################################################
+     #    Copyright (c) 2014, Carl Stahmer - www.carlstahmer.com                   #
+     #                                                                             #
+     #    This file is part of the Collex Edition Builder, a platform              #
+     #    publishing digital editions with a complete, FRBRized system of          #
+     #    metadata management and linked-data functionality.                       #
+     #                                                                             #
+     #    The Collex Edition Builder is free software: you can redistribute it     #
+     #    and/or modify it under the terms of the GNU General Public License       #
+     #    as published by the Free Software Foundation, either version 3 of        #
+     #    the License, or (at your option) any later version.                      #
+     #                                                                             #
+     #    The Collex Edition Builder is distributed in the hope that it will       #
+     #    be useful, but WITHOUT ANY WARRANTY; without even the implied warranty   #
+     #    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         #
+     #    GNU General Public License for more details.                             #
+     #                                                                             #
+     #    You should have received a copy of the GNU General Public License        #
+     #    along with The Collex Edition Builder distribution.  If not,             #
+     #    see <http://www.gnu.org/licenses/>.                                      #
+     #                                                                             #
+     #    Development of this software was made possible through funding from      #
+     #    the National Endowment for the Humanities as well as the Institute       #
+     #    for Digital Humanities, Media, and Culture at Texas A&M University.      #
+     ###############################################################################
+   end%>
+<% content_for :head_breadcrumb do %>
+  <li><a href="#">Admin Interface</a></li>
+<% end %>
+
+<div class="row">
+	<div class="col gu2_half_left">
+		<div class="content">
+		  	<% @nav_cats.each do |nav_cat| %>
+				<div class="cats_nav_block">
+					<div class="nav_cat_header"><%= nav_cat.nav_category_name %></div>
+				</div>
+				<% @has_editions.each do |has_edition| %>
+					<% if has_edition.nav_category_id == nav_cat.id %>
+						<p class="edition_nav_link"><a href="/digital_editions/<%= has_edition.id %>/edit"><%= has_edition.digital_edition_local_title %></a></p>
+					<% end %>
+				<% end %>
+				<p>&nbsp;</p>
+			<% end %>
+			<div class="digital_edition_add_new_line"><table id="frbr_tree_table"><tr class="frbr_tree_table_row"><td class="frbr_tree_new_table_left"><%= button_tag("", :class => "new_work_button_image") %></td><td class="frbr_tree_table_right"><span class="add_new_work_text"><a href="/digital_editions/new">Add New Digital Edition</a></span></td></tr></table></div>
+			<div class="temp_crud_links">
+				<div class="cats_nav_block">
+					<div class="nav_cat_header">Temp CRUD Links</div>
+				</div>
+				<h3>Primary Tables Management</h3>
+				<p><%= link_to "Works", works_path %></p>
+				<p><%= link_to "Expression Types", expression_types_path %></p>
+				<p><%= link_to "Expressions", expressions_path %></p>
+				<p><%= link_to "Manifestation Types", manifestation_types_path %></p>
+				<p><%= link_to "Manifestations", manifestations_path %></p>
+				<p><%= link_to "Manifestation Events", manifestation_events_path %></p>
+				<p><%= link_to "Items", items_path %></p>
+				<p><%= link_to "Item Events", item_events_path %></p>
+				<p><%= link_to "Agents", agents_path %></p>
+				<p><%= link_to "Roles", roles_path %></p>
+				<p><%= link_to "Locations", locations_path %></p>
+				<p><%= link_to "Event Types", event_types_path %></p>
+				<p><%= link_to "Holding Institutions", holding_institutions_path %></p>
+				<p><%= link_to "Digital Editions", digital_editions_path %></p>
+				<p><%= link_to "Pages", pages_path %></p>
+
+				<h3>Concordance Management</h3>
+				<p><%= link_to "Concordance Stop Words", concordance_stop_words_path %></p>
+				<p><%= link_to "Concordance Entries", concordance_entries_path %></p>
+
+
+				<h3>System Tables Management</h3>
+				<p><%= link_to "Configuration Settings", confs_path %></p>
+				<p><%= link_to "Local Markup Mapping", local_markup_mappings_path %></p>
+				<p><%= link_to "User", user_roles_path %></p>
+				<p><%= link_to "System Event Types", system_event_types_path %></p>
+			</div>
+
+          <div class="blue_link_no_underline"><a href="/confs/1/edit">[Edit Site Configuration]</a></div>
+		</div>
+	</div>
+	<div class="col gu2_half_right">
+		<div class="content">
+			<div class="cats_nav_block">
+				<div class="nav_cat_header"><table id="frbr_header_table"><tr class="frbr_table_row"><td class="frbr_table_left">FRBR Hierarchy</td><td class="frbr_table_right"><span class="frbr_type_link">(<% if @frbr_list_type %><a href="/admin/1">view sub-items</a><% else %><a href="/admin">view primary works</a><% end %>)</span></td></tr></table></div>
+			</div>
+			<div class="works_block">
+				<% @frbr_tree.each do |work_item| %>
+					<% int_num_expressions = work_item[2].size %>
+					<div class="frbr_tree_work_descendants"><table id="frbr_tree_table"><tr class="frbr_tree_table_row"><td class="frbr_tree_table_left"><%= button_tag("", :src => "closed_folder.jpg", :class => "folder_icon", :id => "W"+work_item[0].to_s) %></td><td class="frbr_tree_table_right"><span class="frbr_tree_link"><a href="/works/<%= work_item[0].to_s %>/edit"><%= work_item[1] %></a></span></td></tr></table>
+						<div class="expressions_block">
+							<% int_ie = 0 %>
+							<% while int_ie < int_num_expressions  do %>
+								<% int_num_manifestations = work_item[2][int_ie][2].size %>
+								<div class="frbr_tree_expression_descendants"><table id="frbr_tree_table"><tr class="frbr_tree_table_row"><td class="frbr_tree_table_left"><%= button_tag("", :src => "closed_folder.jpg", :class => "folder_icon", :id => "E"+work_item[2][int_ie][0].to_s) %></td><td class="frbr_tree_table_right"><span class="frbr_tree_link"><a href="/expressions/<%= work_item[2][int_ie][0].to_s %>/edit"><%= work_item[2][int_ie][1] %></a></span></td></tr></table>
+									<div class="manifestations_block">
+										<% int_im = 0 %>
+										<% while int_im < int_num_manifestations  do %>
+											<div class="frbr_tree_manifestation_descendants"><table id="frbr_tree_table"><tr class="frbr_tree_table_row"><td class="frbr_tree_table_left"><%= button_tag("", :src => "closed_folder.jpg", :class => "folder_icon", :id => "M"+work_item[2][int_ie][2][int_im][0].to_s) %></td><td class="frbr_tree_table_right"><span class="frbr_tree_link"><a href="/manifestations/<%= work_item[2][int_ie][2][int_im][0].to_s %>/edit"><%= work_item[2][int_ie][2][int_im][1] %></a></span></td></tr></table>
+												<div class="items_block">
+													<% int_num_items = work_item[2][int_ie][2][int_im][2].size %>
+													<% int_ii = 0 %>
+													<% while int_ii < int_num_items  do %>
+														<div class="frbr_tree_manifestation_descendants"><table id="frbr_tree_table"><tr class="frbr_tree_table_row"><td class="frbr_tree_table_left"><%= image_tag "dot2.jpg" %></td><td class="frbr_tree_table_right"><a href="/items/<%= work_item[2][int_ie][2][int_im][2][int_ii][0].to_s %>/edit"><%= work_item[2][int_ie][2][int_im][2][int_ii][1] %></a></td></tr></table></div>
+														<% int_ii = int_ii + 1 %>
+													<% end %>
+													<div class="frbr_tree_item_new"><table id="frbr_tree_table"><tr class="frbr_tree_table_row"><td class="frbr_tree_new_table_left"><%= button_tag("", :parent => work_item[2][int_ie][2][int_im][0].to_s, :class => "new_item_button_image") %></td><td class="frbr_tree_table_right"><span class="frbr_tree_add_new_text"><a href="/items/<%= work_item[2][int_ie][2][int_im][0].to_s %>/new">Add New Item</a></span></td></tr></table></div>
+												</div>
+											</div>
+											<% int_im = int_im + 1 %>
+										<% end %>
+										<div class="frbr_tree_manifestation_new"><table id="frbr_tree_table"><tr class="frbr_tree_table_row"><td class="frbr_tree_new_table_left"><%= button_tag("", :parent => work_item[2][int_ie][0].to_s, :class => "new_manifestation_button_image") %></td><td class="frbr_tree_table_right"><span class="frbr_tree_add_new_text"><a href="/manifestations/<%= work_item[2][int_ie][0].to_s %>/new">Add New Manifestation</a></span></td></tr></table></div>
+									</div>
+								</div>
+								<% int_ie = int_ie + 1 %>
+							<% end %>
+							<div class="frbr_tree_expression_new"><table id="frbr_tree_table"><tr class="frbr_tree_table_row"><td class="frbr_tree_new_table_left"><%= button_tag("", :parent => work_item[0].to_s, :class => "new_expression_button_image") %></td><td class="frbr_tree_table_right"><span class="frbr_tree_add_new_text"><a href="/expressions/<%= work_item[0].to_s %>/new">Add New Expression</a></span></td></tr></table></div>
+						</div>
+					</div>
+				<% end %>	
+				<div class="frbr_tree_work_new"><table id="frbr_tree_table"><tr class="frbr_tree_table_row"><td class="frbr_tree_new_table_left"><%= button_tag("", :src => "plus_icon_20x20.jpg", :class => "new_button_image", :id => "new_work_button") %></td><td class="frbr_tree_table_right"><span class="frbr_tree_add_new_text"><a href="/works/new">Add New Work</a></span></td></tr></table></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<% content_for :foot_logout do %>
+	<div class="content_right_align">
+	    <%= link_to "Logout", '/sessions/destroy' %>
+	</div>
+<% end %>

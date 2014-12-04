@@ -1,0 +1,64 @@
+<%=begin
+     ###############################################################################
+     #    Copyright (c) 2014, Carl Stahmer - www.carlstahmer.com                   #
+     #                                                                             #
+     #    This file is part of the Collex Edition Builder, a platform              #
+     #    publishing digital editions with a complete, FRBRized system of          #
+     #    metadata management and linked-data functionality.                       #
+     #                                                                             #
+     #    The Collex Edition Builder is free software: you can redistribute it     #
+     #    and/or modify it under the terms of the GNU General Public License       #
+     #    as published by the Free Software Foundation, either version 3 of        #
+     #    the License, or (at your option) any later version.                      #
+     #                                                                             #
+     #    The Collex Edition Builder is distributed in the hope that it will       #
+     #    be useful, but WITHOUT ANY WARRANTY; without even the implied warranty   #
+     #    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         #
+     #    GNU General Public License for more details.                             #
+     #                                                                             #
+     #    You should have received a copy of the GNU General Public License        #
+     #    along with The Collex Edition Builder distribution.  If not,             #
+     #    see <http://www.gnu.org/licenses/>.                                      #
+     #                                                                             #
+     #    Development of this software was made possible through funding from      #
+     #    the National Endowment for the Humanities as well as the Institute       #
+     #    for Digital Humanities, Media, and Culture at Texas A&M University.      #
+     ###############################################################################
+   end%>
+<h1>Listing manifestation_events</h1>
+
+<table>
+  <tr>
+    <th>Manifestation</th>
+    <th>Event type</th>
+    <th>Agent</th>
+    <th>Role</th>
+    <th>Location</th>
+    <th>Manifestation event start date</th>
+    <th>Manifestation event end date</th>
+    <th>Manifestation event notes</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @manifestation_events.each do |manifestation_event| %>
+  <tr>
+    <td><%= manifestation_event.manifestation.manifestation_name %></td>
+    <td><%= manifestation_event.event_type.event_type_type %></td>
+    <td><%= manifestation_event.agent.agent_name_prefix %> <%= manifestation_event.agent.agent_first_name %> <%= manifestation_event.agent.agent_middle_name %> <%= manifestation_event.agent.agent_last_name %> <%= manifestation_event.agent.agent_name_suffix %></td>
+    <td><%= manifestation_event.role.role_role %></td>
+    <td><%= manifestation_event.location.location_name %></td>
+    <td><%= manifestation_event.manifestation_event_start_date %></td>
+    <td><%= manifestation_event.manifestation_event_end_date %></td>
+    <td><%= manifestation_event.manifestation_event_notes %></td>
+    <td><%= link_to 'Show', manifestation_event %></td>
+    <td><%= link_to 'Edit', edit_manifestation_event_path(manifestation_event) %></td>
+    <td><%= link_to 'Destroy', manifestation_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Manifestation event', new_manifestation_event_path %>

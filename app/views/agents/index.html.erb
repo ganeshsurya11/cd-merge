@@ -1,0 +1,70 @@
+<%=begin
+     ###############################################################################
+     #    Copyright (c) 2014, Carl Stahmer - www.carlstahmer.com                   #
+     #                                                                             #
+     #    This file is part of the Collex Edition Builder, a platform              #
+     #    publishing digital editions with a complete, FRBRized system of          #
+     #    metadata management and linked-data functionality.                       #
+     #                                                                             #
+     #    The Collex Edition Builder is free software: you can redistribute it     #
+     #    and/or modify it under the terms of the GNU General Public License       #
+     #    as published by the Free Software Foundation, either version 3 of        #
+     #    the License, or (at your option) any later version.                      #
+     #                                                                             #
+     #    The Collex Edition Builder is distributed in the hope that it will       #
+     #    be useful, but WITHOUT ANY WARRANTY; without even the implied warranty   #
+     #    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         #
+     #    GNU General Public License for more details.                             #
+     #                                                                             #
+     #    You should have received a copy of the GNU General Public License        #
+     #    along with The Collex Edition Builder distribution.  If not,             #
+     #    see <http://www.gnu.org/licenses/>.                                      #
+     #                                                                             #
+     #    Development of this software was made possible through funding from      #
+     #    the National Endowment for the Humanities as well as the Institute       #
+     #    for Digital Humanities, Media, and Culture at Texas A&M University.      #
+     ###############################################################################
+   end%>
+<h1>Listing agents</h1>
+
+<table>
+  <tr>
+    <th>Agent last name</th>
+    <th>Agent first name</th>
+    <th>Agent middle name</th>
+    <th>Agent name prefix</th>
+    <th>Agent name suffix</th>
+    <th>Agent birth year</th>
+    <th>Agent death year</th>
+    <th>Agent viaf</th>
+    <th>Agent viaf link</th>
+    <th>Agent viaf type</th>
+    <th>Agent notes</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @agents.each do |agent| %>
+  <tr>
+    <td><%= agent.agent_last_name %></td>
+    <td><%= agent.agent_first_name %></td>
+    <td><%= agent.agent_middle_name %></td>
+    <td><%= agent.agent_name_prefix %></td>
+    <td><%= agent.agent_name_suffix %></td>
+    <td><%= agent.agent_birth_year %></td>
+    <td><%= agent.agent_death_year %></td>
+    <td><%= agent.agent_viaf_id %></td>
+    <td><%= agent.agent_viaf_link %></td>
+    <td><%= agent.agent_viaf_type %></td>
+    <td><%= agent.agent_notes %></td>
+    <td><%= link_to 'Show', agent %></td>
+    <td><%= link_to 'Edit', edit_agent_path(agent) %></td>
+    <td><%= link_to 'Destroy', agent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Agent', new_agent_path %>

@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  digital_edition_id: 1
+  tei_build_tei: MyText
+
+two:
+  digital_edition_id: 1
+  tei_build_tei: MyText

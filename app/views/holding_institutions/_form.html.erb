@@ -1,0 +1,76 @@
+<%=begin
+     ###############################################################################
+     #    Copyright (c) 2014, Carl Stahmer - www.carlstahmer.com                   #
+     #                                                                             #
+     #    This file is part of the Collex Edition Builder, a platform              #
+     #    publishing digital editions with a complete, FRBRized system of          #
+     #    metadata management and linked-data functionality.                       #
+     #                                                                             #
+     #    The Collex Edition Builder is free software: you can redistribute it     #
+     #    and/or modify it under the terms of the GNU General Public License       #
+     #    as published by the Free Software Foundation, either version 3 of        #
+     #    the License, or (at your option) any later version.                      #
+     #                                                                             #
+     #    The Collex Edition Builder is distributed in the hope that it will       #
+     #    be useful, but WITHOUT ANY WARRANTY; without even the implied warranty   #
+     #    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         #
+     #    GNU General Public License for more details.                             #
+     #                                                                             #
+     #    You should have received a copy of the GNU General Public License        #
+     #    along with The Collex Edition Builder distribution.  If not,             #
+     #    see <http://www.gnu.org/licenses/>.                                      #
+     #                                                                             #
+     #    Development of this software was made possible through funding from      #
+     #    the National Endowment for the Humanities as well as the Institute       #
+     #    for Digital Humanities, Media, and Culture at Texas A&M University.      #
+     ###############################################################################
+   end%>
+<%= form_for(@holding_institution) do |f| %>
+  <% if @holding_institution.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@holding_institution.errors.count, "error") %> prohibited this holding_institution from being saved:</h2>
+
+      <ul>
+      <% @holding_institution.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="row">
+      <div class="col gu2_half_left_equal_no_margin">
+        <div class="generic_chunk">
+
+          <div class="field">
+            <%= f.label :holding_institution_name %><br />
+            <%= f.text_field :holding_institution_name, :size => "50" %>
+          </div>
+          <div class="field">
+            <%= f.label :holding_institution_siglum %><br />
+            <%= f.text_field :holding_institution_siglum, :size => "50" %>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="col gu2_half_right_equal">
+        <div class="generic_chunk">
+
+          <div class="field">
+            <%= f.label :holding_institution_notes %><br />
+            <%= f.text_area :holding_institution_notes, :cols => "45", :rows => "5" %>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <%= hidden_field_tag(:referer, @referer) %>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
+<% end %>

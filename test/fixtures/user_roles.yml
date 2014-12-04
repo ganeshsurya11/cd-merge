@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_roles_role: MyString
+  user_roles_notes: MyText
+
+two:
+  user_roles_role: MyString
+  user_roles_notes: MyText

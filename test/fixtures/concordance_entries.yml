@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  concordance_entry_token: MyString
+  concordance_stop: false
+  concordance_entry_total: 1
+
+two:
+  concordance_entry_token: MyString
+  concordance_stop: false
+  concordance_entry_total: 1

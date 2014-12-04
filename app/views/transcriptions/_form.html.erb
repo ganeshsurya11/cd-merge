@@ -1,0 +1,76 @@
+<%=begin
+     ###############################################################################
+     #    Copyright (c) 2014, Carl Stahmer - www.carlstahmer.com                   #
+     #                                                                             #
+     #    This file is part of the Collex Edition Builder, a platform              #
+     #    publishing digital editions with a complete, FRBRized system of          #
+     #    metadata management and linked-data functionality.                       #
+     #                                                                             #
+     #    The Collex Edition Builder is free software: you can redistribute it     #
+     #    and/or modify it under the terms of the GNU General Public License       #
+     #    as published by the Free Software Foundation, either version 3 of        #
+     #    the License, or (at your option) any later version.                      #
+     #                                                                             #
+     #    The Collex Edition Builder is distributed in the hope that it will       #
+     #    be useful, but WITHOUT ANY WARRANTY; without even the implied warranty   #
+     #    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         #
+     #    GNU General Public License for more details.                             #
+     #                                                                             #
+     #    You should have received a copy of the GNU General Public License        #
+     #    along with The Collex Edition Builder distribution.  If not,             #
+     #    see <http://www.gnu.org/licenses/>.                                      #
+     #                                                                             #
+     #    Development of this software was made possible through funding from      #
+     #    the National Endowment for the Humanities as well as the Institute       #
+     #    for Digital Humanities, Media, and Culture at Texas A&M University.      #
+     ###############################################################################
+   end%>
+<%= form_for @transcription, :html => {:multipart => true}  do |f| %>
+  <% if @transcription.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@transcription.errors.count, "error") %> prohibited this transcription from being saved:</h2>
+
+      <ul>
+      <% @transcription.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= f.label :page_id %><br />
+    <%= f.collection_select(:page_id, Page.all, :id, :page_page) %>
+  </div>  
+  
+  <div class="field">
+    <%= f.label :page_page %><br />
+    <%= f.collection_select(:page_id, Page.all, :page_page, :page_page) %>
+  </div>     
+
+  <div class="field">
+    <%= f.label :transcription_order %><br />
+    <%= f.number_field :transcription_order %>
+  </div>
+
+  <div class="field">
+    <%= f.label :transcription_file %><br />
+    <%= f.file_field :transcription_file %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :transcription_text %><br />
+    <%= f.text_area :transcription_text %>
+  </div>
+  <div class="field">
+    <%= f.label :transcription_tei %><br />
+    <%= f.text_area :transcription_tei %>
+  </div>
+  <div class="field">
+    <%= f.label :transcription_notes %><br />
+    <%= f.text_area :transcription_notes %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

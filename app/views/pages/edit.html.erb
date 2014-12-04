@@ -1,0 +1,178 @@
+<%=begin
+     ###############################################################################
+     #    Copyright (c) 2014, Carl Stahmer - www.carlstahmer.com                   #
+     #                                                                             #
+     #    This file is part of the Collex Edition Builder, a platform              #
+     #    publishing digital editions with a complete, FRBRized system of          #
+     #    metadata management and linked-data functionality.                       #
+     #                                                                             #
+     #    The Collex Edition Builder is free software: you can redistribute it     #
+     #    and/or modify it under the terms of the GNU General Public License       #
+     #    as published by the Free Software Foundation, either version 3 of        #
+     #    the License, or (at your option) any later version.                      #
+     #                                                                             #
+     #    The Collex Edition Builder is distributed in the hope that it will       #
+     #    be useful, but WITHOUT ANY WARRANTY; without even the implied warranty   #
+     #    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         #
+     #    GNU General Public License for more details.                             #
+     #                                                                             #
+     #    You should have received a copy of the GNU General Public License        #
+     #    along with The Collex Edition Builder distribution.  If not,             #
+     #    see <http://www.gnu.org/licenses/>.                                      #
+     #                                                                             #
+     #    Development of this software was made possible through funding from      #
+     #    the National Endowment for the Humanities as well as the Institute       #
+     #    for Digital Humanities, Media, and Culture at Texas A&M University.      #
+     ###############################################################################
+   end%>
+<% content_for :head_breadcrumb do %>
+    <li><a href="/admin">Admin Interface</a></li>
+    <li><a href="/digital_editions/<%= @parent  %>/edit/">Digital Edition</a></li>
+    <li><a href="/pages/<%= @parent  %>/view/">Pages</a></li>
+    <li><a href="#">Edit Page</a></li>
+<% end %>
+
+<%= render 'form' %>
+
+<div class="content_width_short">
+  <hr>
+</div>
+
+<div class="content_width">
+  <table class="form_column_table_three">
+    <tr class="form_column_table_tr">
+      <td class="form_column_table_left_cell_two">
+        <table class="split_columns">
+          <tr class="split_columns_tr">
+            <td class="split_columns_left_cell">
+              <h1>Page Transcription</h1>
+            </td>
+            <td class="split_columns_right_cell">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+        <table class="transcription_file_table">
+          <tr class="transcription_file_table_tr">
+            <td class="transcription_file_table_td">
+              <% @lines.each do |ln| %>
+                  <div class="trans_line"><%= ln.line_variant_version %></div>
+              <% end %>
+            </td>
+          </tr>
+        </table>
+
+      </td>
+      <td class="form_column_table_right_cell_two">
+        <table class="split_columns">
+          <tr class="split_columns_tr">
+            <td class="split_columns_left_cell">
+              <h1>Page Image</h1>
+            </td>
+            <td class="split_columns_right_cell">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+        <%= image_tag @page.page_image_url(:medium_thumb).to_s, :width => "400" %>
+      </td>
+    </tr>
+    <tr class="form_column_table_tr">
+      <td colspan="2">
+        &nbsp;
+      </td>
+    </tr>
+
+    <tr class="form_column_table_tr">
+      <td colspan="2">
+
+
+        <table class="split_columns">
+          <tr class="split_columns_tr">
+            <td class="split_columns_left_cell">
+              <h1>Transcription Files</h1>
+            </td>
+            <td class="split_columns_right_cell">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+        <%= form_tag('/transcriptions/update_order', :method => 'post') do %>
+            <table class="transcription_file_table">
+              <tr class="transcription_file_table_tr">
+                <td class="transcription_file_table_td_head">
+                  Order
+                </td>
+                <td class="transcription_file_table_td_head">
+                  Entity (contained Expressions)
+                </td>
+                <td class="transcription_file_table_td_head">
+                  File
+                </td>
+                <td class="transcription_file_table_td_head">
+                  <a id="thispage_<%= @page.id %>"class="transcription_new_link" href="#"><%= image_tag "plus_icon_20x20_grey.jpg" %></a>
+                </td>
+              </tr>
+              <% it_trans = 0 %>
+              <% @transcriptions.each do |tr| %>
+                  <% it_trans = it_trans + 1 %>
+                  <% field_name = "to_" + it_trans.to_s %>
+                  <% field_name_two = "id_" + it_trans.to_s %>
+                  <tr class="transcription_file_table_tr">
+                    <td class="transcription_file_table_td">
+                      <% if @transcriptions.size > 1 %>
+                          <%= text_field_tag(field_name, tr.transcription_order.to_s, :size => "1") %>
+                          <%= hidden_field_tag(field_name_two, tr.id) %>
+                      <% else %>
+                          <%= tr.transcription_order.to_s %>
+                      <% end %>
+                    </td>
+                    <td class="transcription_file_table_td_align">
+                      (<%= tr.expression.expression_siglum.gsub("E:", "") %>) <%= tr.expression.expression_name %>
+                    </td>
+                    <td class="transcription_file_table_td_align">
+                      <% str_filename = tr.transcription_file %>
+                      <% arr_path_parts = str_filename.to_s.split(/\//) %>
+                      <% str_file_part = arr_path_parts.last %>
+                      <%= str_file_part %>&nbsp;<a id="tr_<%= tr.id %>"class="transcription_link" href="#">[edit]</a>
+                    </td>
+                    <td class="transcription_file_table_td">
+                      <%= link_to image_tag("minus_icon_20x20.jpg", :border => 0), {:controller => "transcriptions", :action => "dump", :id => tr.id}, :confirm => 'Are you sure you want to delete the selected Transcription?'  %>
+                    </td>
+                  </tr>
+              <% end %>
+              <%= hidden_field_tag(:parent, @page.id) %>
+              <%= hidden_field_tag(:num_trans, it_trans.to_s) %>
+              <% if @transcriptions.size > 1 %>
+                  <tr class="transcription_file_table_tr">
+                    <td class="transcription_file_table_td_align" colspan="4">
+                      <%= submit_tag("Re-Order") %>
+                    </td>
+                  </tr>
+              <% end %>
+            </table>
+        <% end %>
+      </td>
+    </tr>
+    <tr class="form_column_table_tr">
+      <td colspan="2">
+        &nbsp;
+      </td>
+    </tr>
+    <tr class="form_column_table_tr">
+      <td class="content_align_right" colspan="2">
+        <span class="blue_link_no_underline"><a id="delete_obj_link" this_obj_type="pages" this_obj_id="<%= @page.id %>" this_obj_h="150" this_obj_w="400" this_obj_message="Are you sure you want to delete this page and all its associated content?" href="#bottom">[Delete Page]</a></span>
+        <a name="bottom"><br/></a>
+
+      </td>
+    </tr>
+  </table>
+
+</div>
+
+
+<% content_for :foot_logout do %>
+    <div class="content_right_align">
+      <%= link_to "Logout", '/sessions/destroy' %>
+    </div>
+<% end %>

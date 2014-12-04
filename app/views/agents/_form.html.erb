@@ -1,0 +1,88 @@
+<%=begin
+     ###############################################################################
+     #    Copyright (c) 2014, Carl Stahmer - www.carlstahmer.com                   #
+     #                                                                             #
+     #    This file is part of the Collex Edition Builder, a platform              #
+     #    publishing digital editions with a complete, FRBRized system of          #
+     #    metadata management and linked-data functionality.                       #
+     #                                                                             #
+     #    The Collex Edition Builder is free software: you can redistribute it     #
+     #    and/or modify it under the terms of the GNU General Public License       #
+     #    as published by the Free Software Foundation, either version 3 of        #
+     #    the License, or (at your option) any later version.                      #
+     #                                                                             #
+     #    The Collex Edition Builder is distributed in the hope that it will       #
+     #    be useful, but WITHOUT ANY WARRANTY; without even the implied warranty   #
+     #    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         #
+     #    GNU General Public License for more details.                             #
+     #                                                                             #
+     #    You should have received a copy of the GNU General Public License        #
+     #    along with The Collex Edition Builder distribution.  If not,             #
+     #    see <http://www.gnu.org/licenses/>.                                      #
+     #                                                                             #
+     #    Development of this software was made possible through funding from      #
+     #    the National Endowment for the Humanities as well as the Institute       #
+     #    for Digital Humanities, Media, and Culture at Texas A&M University.      #
+     ###############################################################################
+   end%>
+<%= form_for(@agent) do |f| %>
+  <% if @agent.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@agent.errors.count, "error") %> prohibited this agent from being saved:</h2>
+
+      <ul>
+      <% @agent.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :agent_last_name %><br />
+    <%= f.text_field :agent_last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :agent_first_name %><br />
+    <%= f.text_field :agent_first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :agent_middle_name %><br />
+    <%= f.text_field :agent_middle_name %>
+  </div>
+  <div class="field">
+    <%= f.label :agent_name_prefix %><br />
+    <%= f.text_field :agent_name_prefix %>
+  </div>
+  <div class="field">
+    <%= f.label :agent_name_suffix %><br />
+    <%= f.text_field :agent_name_suffix %>
+  </div>
+  <div class="field">
+    <%= f.label :agent_birth_year %><br />
+    <%= f.number_field :agent_birth_year %>
+  </div>
+  <div class="field">
+    <%= f.label :agent_death_year %><br />
+    <%= f.number_field :agent_death_year %>
+  </div>
+  <div class="field">
+    <%= f.label :agent_viaf_id %><br />
+    <%= f.number_field :agent_viaf_id %>
+  </div>
+  <div class="field">
+    <%= f.label :agent_viaf_link %><br />
+    <%= f.text_field :agent_viaf_link %>
+  </div>
+  <div class="field">
+    <%= f.label :agent_viaf_type %><br />
+    <%= f.text_field :agent_viaf_type %>
+  </div>
+  <div class="field">
+    <%= f.label :agent_notes %><br />
+    <%= f.text_area :agent_notes %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

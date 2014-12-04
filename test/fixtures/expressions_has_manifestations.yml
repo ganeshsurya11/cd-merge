@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  expression_id: 1
+  manifestation_id: 1
+  expression_has_manifestation_primary: false
+
+two:
+  expression_id: 1
+  manifestation_id: 1
+  expression_has_manifestation_primary: false

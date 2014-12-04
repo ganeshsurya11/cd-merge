@@ -1,0 +1,46 @@
+<%=begin
+     ###############################################################################
+     #    Copyright (c) 2014, Carl Stahmer - www.carlstahmer.com                   #
+     #                                                                             #
+     #    This file is part of the Collex Edition Builder, a platform              #
+     #    publishing digital editions with a complete, FRBRized system of          #
+     #    metadata management and linked-data functionality.                       #
+     #                                                                             #
+     #    The Collex Edition Builder is free software: you can redistribute it     #
+     #    and/or modify it under the terms of the GNU General Public License       #
+     #    as published by the Free Software Foundation, either version 3 of        #
+     #    the License, or (at your option) any later version.                      #
+     #                                                                             #
+     #    The Collex Edition Builder is distributed in the hope that it will       #
+     #    be useful, but WITHOUT ANY WARRANTY; without even the implied warranty   #
+     #    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         #
+     #    GNU General Public License for more details.                             #
+     #                                                                             #
+     #    You should have received a copy of the GNU General Public License        #
+     #    along with The Collex Edition Builder distribution.  If not,             #
+     #    see <http://www.gnu.org/licenses/>.                                      #
+     #                                                                             #
+     #    Development of this software was made possible through funding from      #
+     #    the National Endowment for the Humanities as well as the Institute       #
+     #    for Digital Humanities, Media, and Culture at Texas A&M University.      #
+     ###############################################################################
+   end%>
+<%= form_for @transcription, :html => {:multipart => true}  do |f| %>
+    <%= hidden_field_tag("transcription[page_id]", @parent) %>
+    <%= hidden_field_tag("transcription[digital_edition_id]", @dig_ed) %>
+    <table border="0">
+      <tr><td align="left"><%= f.label "Transcription File:" %>&nbsp;<%= f.file_field :transcription_file %></td></tr>
+      <tr><td align="left">&nbsp;</td></tr>
+      <tr><td align="left"><%= f.label "Order:" %>&nbsp;<%= f.number_field :transcription_order, :size => "3" %></td></tr>
+      <tr><td align="left">&nbsp;</td></tr>
+      <tr><td align="left"><%= f.label "Expression:" %><br /><%= f.select :expression_id, @expressions_master, {}, { :class => 'transcription_expression_select' } %></td></tr>
+      <tr><td align="left">&nbsp;</td></tr>
+      <tr><td align="left"><%= f.label "Notes:" %><br /><%= f.text_area :transcription_notes, :rows => "4", :cols => "47" %></td></tr>
+      <tr><td align="left">&nbsp;</td></tr>
+      <tr><td align="left"><%= check_box_tag(:rebuild, value = "1", checked = false) %> Rebuild Edition Now*</td></tr>
+      <tr><td align="left">&nbsp;</td></tr>
+      <tr><td align="left"><%= f.submit %></td></tr>
+      <tr><td align="left">&nbsp;</td></tr>
+      <tr><td align="left"><span class="small_note">*Note:  Rebuilding the edition to include changes made to transcriptions can take a few minutes.  If you have other changes to make, leave this unchecked and launch the rebuild process from the Edition main page when you have completed your work.</span></td></tr>
+    </table>
+<% end %>

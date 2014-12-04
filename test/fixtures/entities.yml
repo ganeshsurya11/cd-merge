@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  entity_name: MyString
+  entity_siglum: MyString
+  entity_viaf_work_id: 1
+  entity_viaf_work_link: MyString
+  entity_standard_title: MyString
+  entity_standard_title_source: MyString
+  entity_notes: MyText
+
+two:
+  entity_name: MyString
+  entity_siglum: MyString
+  entity_viaf_work_id: 1
+  entity_viaf_work_link: MyString
+  entity_standard_title: MyString
+  entity_standard_title_source: MyString
+  entity_notes: MyText

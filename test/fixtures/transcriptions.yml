@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  page_id: 1
+  entity_id: 1
+  transcription_order: 1
+  transcription_file: MyString
+  transcription_text: MyText
+  transcription_tei: MyText
+  transcription_notes: MyText
+
+two:
+  page_id: 1
+  entity_id: 1
+  transcription_order: 1
+  transcription_file: MyString
+  transcription_text: MyText
+  transcription_tei: MyText
+  transcription_notes: MyText

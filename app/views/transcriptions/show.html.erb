@@ -1,0 +1,77 @@
+<%=begin
+     ###############################################################################
+     #    Copyright (c) 2014, Carl Stahmer - www.carlstahmer.com                   #
+     #                                                                             #
+     #    This file is part of the Collex Edition Builder, a platform              #
+     #    publishing digital editions with a complete, FRBRized system of          #
+     #    metadata management and linked-data functionality.                       #
+     #                                                                             #
+     #    The Collex Edition Builder is free software: you can redistribute it     #
+     #    and/or modify it under the terms of the GNU General Public License       #
+     #    as published by the Free Software Foundation, either version 3 of        #
+     #    the License, or (at your option) any later version.                      #
+     #                                                                             #
+     #    The Collex Edition Builder is distributed in the hope that it will       #
+     #    be useful, but WITHOUT ANY WARRANTY; without even the implied warranty   #
+     #    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         #
+     #    GNU General Public License for more details.                             #
+     #                                                                             #
+     #    You should have received a copy of the GNU General Public License        #
+     #    along with The Collex Edition Builder distribution.  If not,             #
+     #    see <http://www.gnu.org/licenses/>.                                      #
+     #                                                                             #
+     #    Development of this software was made possible through funding from      #
+     #    the National Endowment for the Humanities as well as the Institute       #
+     #    for Digital Humanities, Media, and Culture at Texas A&M University.      #
+     ###############################################################################
+   end%>
+<p id="notice"><%= notice %></p>
+
+<p>
+  	<b>Surrogate:</b>
+  	<%= @transcription.page.surrogate.surrogate_local_title %>
+</p>
+
+<p>
+  <b>Page ID:</b>
+  <%= @transcription.page.page_id %>
+</p>
+
+<p>
+  <b>Page Number:</b>
+  <%= @transcription.page.page_page %>
+</p>
+
+<p>
+  <b>Entity:</b>
+  <%= @transcription.entity.entity_name %>
+</p>
+
+<p>
+  <b>Transcription order:</b>
+  <%= @transcription.transcription_order %>
+</p>
+
+<p>
+  <b>Transcription file:</b>
+  <%= @transcription.transcription_file %>
+</p>
+
+<p>
+  <b>Transcription text:</b>
+  <%= @transcription.transcription_text %>
+</p>
+
+<p>
+  <b>Transcription tei:</b>
+  <%= @transcription.transcription_tei %>
+</p>
+
+<p>
+  <b>Transcription notes:</b>
+  <%= @transcription.transcription_notes %>
+</p>
+
+
+<%= link_to 'Edit', edit_transcription_path(@transcription) %> |
+<%= link_to 'Back', transcriptions_path %>

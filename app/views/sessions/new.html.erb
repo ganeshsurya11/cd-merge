@@ -1,0 +1,13 @@
+<h1>Editorial Interface Log In</h1>
+
+<%= form_tag sessions_path do %>
+  <% if @notice %>
+  	<div id="notice"><%= @notice.inspect %></div>
+  <% end %>
+  <table class="create_user_table">
+  	<tr><td class="login_left_field">Email Address</td><td class="login_right_field"><%= text_field_tag :email, params[:email] %></td></tr>
+  	<tr><td class="login_left_field">Password</td><td class="login_right_field"><%= password_field_tag :password %></td></tr>
+  </table>
+ 
+  <div class="actions"><%= submit_tag "Log in" %></div>
+<% end %>
